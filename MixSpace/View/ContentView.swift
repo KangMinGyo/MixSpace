@@ -2,20 +2,22 @@
 //  ContentView.swift
 //  MixSpace
 //
-//  Created by KangMingyo on 2023/03/13.
+//  Created by KangMingyo on 2023/03/14.
 //
 
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("logStatus") var logStatus = false
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        ZStack {
+            if logStatus {
+                HomeView()
+            } else {
+                LoginView()
+            }
         }
-        .padding()
     }
 }
 
