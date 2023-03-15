@@ -12,13 +12,13 @@ struct HomeView: View {
     
     @AppStorage("logStatus") var logStatus = false
     @State var selection = 0
-    let title = ["Home", "Space", "My"]
+    let title = ["Home", "Space", "+", "Heart","My"]
     
     var body: some View {
         NavigationView {
             VStack {
                 TabView(selection: $selection) {
-                    Text("home")
+                    homeView
                         .tabItem {
                             Image(systemName: "moonphase.new.moon")
                             Text("Home")
@@ -30,12 +30,24 @@ struct HomeView: View {
                             Text("space")
                         }
                         .tag(1)
+                    Text("space")
+                        .tabItem {
+                            Image(systemName: "plus.circle")
+                            Text("space")
+                        }
+                        .tag(2)
+                    Text("space")
+                        .tabItem {
+                            Image(systemName: "heart.fill")
+                            Text("space")
+                        }
+                        .tag(3)
                     profileView
                         .tabItem {
                             Image(systemName: "person.circle.fill")
                             Text("My")
                         }
-                        .tag(2)
+                        .tag(4)
                     
                 }
                 .navigationTitle(title[selection])
@@ -52,6 +64,17 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 extension HomeView {
+    private var homeView: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(0...20, id: \.self) { num in
+                    NewStarPost()
+                    Divider()
+                }
+            }
+        }
+    }
+    
     private var profileView: some View {
         
         VStack {

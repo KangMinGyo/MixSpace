@@ -36,7 +36,7 @@ class LoginViewModel: ObservableObject {
                 print(err.localizedDescription)
             }
             
-            print("Loggen In Success")
+            print("Loggen In Success: \(result?.user.uid ?? "")")
             
             withAnimation(.easeInOut) {
                 self.logStatus = true
