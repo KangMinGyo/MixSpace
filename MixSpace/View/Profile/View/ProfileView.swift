@@ -12,17 +12,24 @@ struct ProfileView: View {
     
     @AppStorage("logStatus") var logStatus = false
     @State private var selectionFilter: ProfileFilterViewModel = .space
+    let columns = [GridItem(.flexible()),
+                   GridItem(.flexible()),
+                   GridItem(.flexible())]
+    
+    let imageDimension = UIScreen.main.bounds.width / 3
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HeaderView
-                
-                filterBar
-
-                Spacer()
-            }
+        
+        VStack {
+            HeaderView
+            
+            filterBar
+            
+            gridView
+            
+            Spacer()
         }
+        
         .ignoresSafeArea()
     }
 }
@@ -107,6 +114,21 @@ extension ProfileView {
                     withAnimation(.easeInOut) {
                         self.selectionFilter = item
                     }
+                }
+            }
+        }
+    }
+    
+    private var gridView: some View {
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 2) {
+                ForEach(0...4, id: \.self) { index in
+                    Image("TestImage")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: imageDimension ,height: imageDimension)
+                        .border(Color.white)
+                        .clipped()
                 }
             }
         }

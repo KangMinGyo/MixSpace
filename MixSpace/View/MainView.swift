@@ -35,10 +35,10 @@ struct MainView: View {
                             Text("+")
                         }
                         .tag(2)
-                    Text("Heart")
+                    Text("magnifyingglass")
                         .tabItem {
-                            Image(systemName: "heart.fill")
-                            Text("Heart")
+                            Image(systemName: "magnifyingglass")
+                            Text("Search")
                         }
                         .tag(3)
                     ProfileView()
