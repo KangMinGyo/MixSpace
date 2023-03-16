@@ -10,6 +10,8 @@
 		8C024D7F29C095F0005788BF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024D7E29C095F0005788BF /* HomeView.swift */; };
 		8C024D8129C09756005788BF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024D8029C09756005788BF /* ContentView.swift */; };
 		8C024D8629C1EFC2005788BF /* NewStarPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024D8529C1EFC2005788BF /* NewStarPost.swift */; };
+		8C024D8E29C2F02E005788BF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024D8D29C2F02E005788BF /* MainView.swift */; };
+		8C024D9029C2F1B7005788BF /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024D8F29C2F1B7005788BF /* MyView.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -27,6 +29,8 @@
 		8C024D7E29C095F0005788BF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		8C024D8029C09756005788BF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8C024D8529C1EFC2005788BF /* NewStarPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStarPost.swift; sourceTree = "<group>"; };
+		8C024D8D29C2F02E005788BF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		8C024D8F29C2F1B7005788BF /* MyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -104,7 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				8CBB341829BEF93F00B98E4A /* LoginView.swift */,
+				8C024D8D29C2F02E005788BF /* MainView.swift */,
 				8C024D7E29C095F0005788BF /* HomeView.swift */,
+				8C024D8F29C2F1B7005788BF /* MyView.swift */,
 				8C024D8029C09756005788BF /* ContentView.swift */,
 			);
 			path = View;
@@ -200,7 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C024D9029C2F1B7005788BF /* MyView.swift in Sources */,
 				8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */,
+				8C024D8E29C2F02E005788BF /* MainView.swift in Sources */,
 				8C024D8129C09756005788BF /* ContentView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
 				8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */,

@@ -13,7 +13,7 @@ struct ContentView: View {
         
         ZStack {
             if logStatus {
-                HomeView()
+                MainView()
             } else {
                 LoginView()
             }

@@ -51,12 +51,14 @@ struct NewStarPost: View {
                 } label: {
                     Image(systemName: "star.bubble.fill")
                         .font(.title3)
+                        .foregroundColor(Color("SpaceBlue"))
                 }
                 Button {
                     
                 } label: {
                     Image(systemName: "heart")
                         .font(.title3)
+                        .foregroundColor(Color("SpaceBlue"))
                 }
                 
                 Spacer()
@@ -66,14 +68,14 @@ struct NewStarPost: View {
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                         .font(.title3)
+                        .foregroundColor(Color("SpaceBlue"))
                 }
 
             }
             .frame(alignment: .leading)
             .padding(.init(top: 4, leading: 16, bottom: 4, trailing: 16))
-            
-            
         }
+        Divider()
     }
 }
 
