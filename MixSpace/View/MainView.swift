@@ -19,7 +19,7 @@ struct MainView: View {
                 TabView(selection: $selection) {
                     HomeView()
                         .tabItem {
-                            Image(systemName: "moonphase.new.moon")
+                            Image(systemName: "sun.max")
                             Text("Space")
                         }
                         .tag(0)
@@ -41,7 +41,7 @@ struct MainView: View {
                             Text("Heart")
                         }
                         .tag(3)
-                    MyView()
+                    ProfileView()
                         .tabItem {
                             Image(systemName: "person.circle.fill")
                             Text("My")

@@ -8,14 +8,17 @@
 import SwiftUI
 import Firebase
 
-struct MyView: View {
+struct ProfileView: View {
     
     @AppStorage("logStatus") var logStatus = false
+    @State private var selectionFilter: ProfileFilterViewModel = .space
     
     var body: some View {
         ScrollView {
             VStack {
                 HeaderView
+                
+                filterBar
 
                 Spacer()
             }
@@ -26,11 +29,11 @@ struct MyView: View {
 
 struct MyView_Previews: PreviewProvider {
     static var previews: some View {
-        MyView()
+        ProfileView()
     }
 }
 
-extension MyView {
+extension ProfileView {
     private var HeaderView: some View {
         ZStack(alignment: .bottomLeading) {
             Color("SpaceBlue")
@@ -60,7 +63,14 @@ extension MyView {
                 Spacer()
                 
                 Button {
-                    //프로필 설정
+                    //프로필 설정 (지금은 임시 로그아웃 버튼)
+                    DispatchQueue.global(qos: .background).async {
+                        try? Auth.auth().signOut()
+                    }
+
+                    withAnimation(.easeInOut) {
+                        logStatus = false
+                    }
                 } label: {
                     Image(systemName: "gearshape")
                         .font(.system(size: 24))
@@ -72,6 +82,34 @@ extension MyView {
             
         }
         .frame(height: 300)
+    }
+    
+    private var filterBar: some View {
+        HStack {
+            ForEach(ProfileFilterViewModel.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text("\(item.title)")
+                        .font(.subheadline)
+                        .fontWeight(selectionFilter == item ? .semibold : .regular)
+                        .foregroundColor(selectionFilter == item ? .primary : .gray)
+                    
+                    if selectionFilter == item {
+                        Rectangle()
+                            .foregroundColor(Color("SpaceYellow"))
+                            .frame(height: 3)
+                    } else {
+                        Rectangle()
+                            .foregroundColor(Color("SpaceWhite"))
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectionFilter = item
+                    }
+                }
+            }
+        }
     }
 }
 
