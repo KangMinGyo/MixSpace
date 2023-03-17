@@ -17,7 +17,7 @@ struct MainView: View {
         NavigationView {
             VStack {
                 TabView(selection: $selection) {
-                    HomeView()
+                    HomeContentView()
                         .tabItem {
                             Image(systemName: "sun.max")
                             Text("Space")

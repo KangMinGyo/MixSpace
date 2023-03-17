@@ -44,7 +44,7 @@ extension ProfileView {
     private var HeaderView: some View {
         ZStack(alignment: .bottomLeading) {
             Color("SpaceBlue")
-            
+
             HStack {
                 Image("Profile")
                     .resizable()
@@ -58,19 +58,12 @@ extension ProfileView {
                         .foregroundColor(.white)
                     Text("주먹밥러버")
                         .font(.subheadline)
-                        .foregroundColor(.white)
+                        .foregroundColor(.gray)
                     
                     Button {
                         // 친구 목록으로 이동
                     } label: {
-                        HStack {
-                            Text("2 Following")
-                                .font(.subheadline)
-                                .foregroundColor(.white)
-                            Text("7 Followers")
-                                .font(.subheadline)
-                                .foregroundColor(.white)
-                        }
+                        UserStatsView()
                     }
                 }
                 Spacer()
@@ -80,7 +73,7 @@ extension ProfileView {
                     DispatchQueue.global(qos: .background).async {
                         try? Auth.auth().signOut()
                     }
-
+                    
                     withAnimation(.easeInOut) {
                         logStatus = false
                     }
@@ -92,7 +85,6 @@ extension ProfileView {
                 }
             }
             .padding()
-            
         }
         .frame(height: 300)
     }
