@@ -35,7 +35,7 @@ struct MainView: View {
                             Text("+")
                         }
                         .tag(2)
-                    Text("magnifyingglass")
+                    SearchView()
                         .tabItem {
                             Image(systemName: "magnifyingglass")
                             Text("Search")
@@ -49,7 +49,7 @@ struct MainView: View {
                         .tag(4)
                     
                 }
-                .navigationTitle(title[selection])
+//                .navigationTitle(title[selection])
                 
             }
         }

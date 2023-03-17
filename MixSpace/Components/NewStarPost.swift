@@ -22,8 +22,7 @@ struct NewStarPost: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading)
-            .padding(.trailing)
+            .padding(.horizontal)
             
             Image("TestImage")
                 .resizable()
@@ -31,8 +30,7 @@ struct NewStarPost: View {
                 .frame(maxWidth: .infinity, maxHeight: 250)
                 .cornerRadius(10)
                 .clipped()
-                .padding(.leading)
-                .padding(.trailing)
+                .padding(.horizontal)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text("거제 정글돔 놀러가기!")
@@ -42,8 +40,7 @@ struct NewStarPost: View {
                     .font(.subheadline)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.leading)
-            .padding(.trailing)
+            .padding(.horizontal)
             
             HStack {
                 Button {
@@ -73,7 +70,8 @@ struct NewStarPost: View {
 
             }
             .frame(alignment: .leading)
-            .padding(.init(top: 4, leading: 16, bottom: 4, trailing: 16))
+            .padding(.horizontal)
+            .padding(.vertical, 4)
         }
         Divider()
     }

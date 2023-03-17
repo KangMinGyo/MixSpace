@@ -46,7 +46,7 @@ extension ProfileView {
             Color("SpaceBlue")
             
             HStack {
-                Image("TestProfile")
+                Image("Profile")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 72, height: 72)
@@ -54,6 +54,10 @@ extension ProfileView {
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text("이훈이")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    Text("주먹밥러버")
+                        .font(.subheadline)
                         .foregroundColor(.white)
                     
                     Button {
@@ -61,8 +65,10 @@ extension ProfileView {
                     } label: {
                         HStack {
                             Text("2 Following")
+                                .font(.subheadline)
                                 .foregroundColor(.white)
                             Text("7 Followers")
+                                .font(.subheadline)
                                 .foregroundColor(.white)
                         }
                     }
