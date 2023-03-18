@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SideMenuView: View {
+    
+    @AppStorage("logStatus") var logStatus = true
+    @EnvironmentObject private var vm: SideMenuViewModel
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             VStack(alignment: .leading) {
@@ -29,18 +34,29 @@ struct SideMenuView: View {
             }
             .padding(.leading)
             
-            ForEach(SideMenuViewModel.allCases, id: \.rawValue) { item in
-                HStack {
-                    Image(systemName: item.symbolName)
-                        .font(.system(size: 24))
-                        .foregroundColor(.gray)
-                    Text(item.title)
-                        .font(.subheadline)
-                    
-                    Spacer()
+            ForEach(SideMenuOptionViewModel.allCases, id: \.rawValue) { item in
+                if item == .profile {
+                    NavigationLink {
+                        ProfileView()
+                    } label: {
+                        SideMenuOptionView(vm: item)
+                    }
+                }  else if item == .logout {
+                    Button {
+                        DispatchQueue.global(qos: .background).async {
+                            try? Auth.auth().signOut()
+                        }
+                        
+                        withAnimation(.easeInOut) {
+                            logStatus = false
+                        }
+                    } label: {
+                        SideMenuOptionView(vm: item)
+                    }
+      
+                } else {
+                    SideMenuOptionView(vm: item)
                 }
-                .frame(height: 40)
-                .padding(.horizontal)
             }
             Spacer()
         }
@@ -50,5 +66,6 @@ struct SideMenuView: View {
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
         SideMenuView()
+            .environmentObject(SideMenuViewModel())
     }
 }

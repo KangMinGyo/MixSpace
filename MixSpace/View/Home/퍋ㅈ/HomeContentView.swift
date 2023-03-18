@@ -20,7 +20,7 @@ struct HomeContentView: View {
                 if showMenu {
                     ZStack {
                         Color(.black)
-                            .opacity(0.25)
+                            .opacity(showMenu ? 0.25 : 0.0)
                     }.onTapGesture {
                         withAnimation(.easeInOut) {
                             showMenu = false
@@ -28,8 +28,8 @@ struct HomeContentView: View {
                     }
                 }
                 SideMenuView()
-                    .frame(width: 250)
-                    .offset(x: showMenu ? 0 : -250, y: 0)
+                    .frame(width: 300)
+                    .offset(x: showMenu ? 0 : -300, y: 0)
                     .background(showMenu ? Color.white : Color.clear)
             }
             .navigationTitle("Home")
@@ -49,6 +49,9 @@ struct HomeContentView: View {
                             .clipShape(Circle())
                     }
                 }
+            }
+            .onAppear {
+                showMenu = false
             }
         }
     }
