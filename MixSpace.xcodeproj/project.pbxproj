@@ -22,6 +22,8 @@
 		8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DAD29C48C06005788BF /* HomeContentView.swift */; };
 		8C024DB229C5AD14005788BF /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB129C5AD14005788BF /* SideMenuOptionView.swift */; };
 		8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB329C5F2BE005788BF /* SideMenuViewModel.swift */; };
+		8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB629C6D9F2005788BF /* WritingView.swift */; };
+		8C024DB929C6E773005788BF /* WritingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB829C6E773005788BF /* WritingArea.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -51,6 +53,8 @@
 		8C024DAD29C48C06005788BF /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		8C024DB129C5AD14005788BF /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		8C024DB329C5F2BE005788BF /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
+		8C024DB629C6D9F2005788BF /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		8C024DB829C6E773005788BF /* WritingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingArea.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -215,6 +219,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8C024DB529C6D9C8005788BF /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				8C024DB629C6D9F2005788BF /* WritingView.swift */,
+				8C024DB829C6E773005788BF /* WritingArea.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +273,7 @@
 				8C024D9D29C434A8005788BF /* Login */,
 				8C024DA029C434EE005788BF /* Main */,
 				8C024DA129C434FC005788BF /* Home */,
+				8C024DB529C6D9C8005788BF /* Writing */,
 				8C024D9729C42900005788BF /* Search */,
 				8C024D9129C300BB005788BF /* Profile */,
 				8C024DA229C43B24005788BF /* SideMenu */,
@@ -351,6 +365,7 @@
 			files = (
 				8C024DB229C5AD14005788BF /* SideMenuOptionView.swift in Sources */,
 				8C024D9A29C42936005788BF /* SearchView.swift in Sources */,
+				8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */,
 				8C024D9029C2F1B7005788BF /* ProfileView.swift in Sources */,
 				8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */,
 				8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */,
@@ -361,6 +376,7 @@
 				8C024DAA29C47A34005788BF /* UserStatsView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
+				8C024DB929C6E773005788BF /* WritingArea.swift in Sources */,
 				8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */,
 				8C024D8629C1EFC2005788BF /* NewStarPost.swift in Sources */,
 				8CBB345429BF5AA800B98E4A /* LoginViewModel.swift in Sources */,

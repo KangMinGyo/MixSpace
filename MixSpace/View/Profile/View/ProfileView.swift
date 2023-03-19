@@ -67,22 +67,6 @@ extension ProfileView {
                     }
                 }
                 Spacer()
-                
-                Button {
-                    //프로필 설정 (지금은 임시 로그아웃 버튼)
-                    DispatchQueue.global(qos: .background).async {
-                        try? Auth.auth().signOut()
-                    }
-                    
-                    withAnimation(.easeInOut) {
-                        logStatus = false
-                    }
-                } label: {
-                    Image(systemName: "gearshape")
-                        .font(.system(size: 24))
-                        .foregroundColor(Color.gray)
-                    
-                }
             }
             .padding()
         }

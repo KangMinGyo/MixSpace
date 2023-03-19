@@ -29,7 +29,7 @@ struct MainView: View {
                             Text("MySpace")
                         }
                         .tag(1)
-                    Text("+")
+                    WritingView()
                         .tabItem {
                             Image(systemName: "plus.circle")
                             Text("+")
