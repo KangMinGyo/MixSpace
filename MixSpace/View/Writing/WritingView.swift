@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct WritingView: View {
+    //Image 관련
+    @State private var imagePickerPresented = false
+    @State private var selectedImage: UIImage?
+    @State private var profileImage: Image?
     
     @State private var caption = ""
     
@@ -15,26 +19,31 @@ struct WritingView: View {
         NavigationView {
             VStack {
                 HStack(alignment: .top) {
-                    Image("Profile")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 50, height: 50)
+                    Button {
+                        imagePickerPresented.toggle()
+                    } label: {
+                        let image = profileImage == nil ? Image(systemName: "photo.circle") : profileImage ?? Image(systemName: "photo.circle")
+                            image
+                                .resizable()
+                                .foregroundColor(.gray)
+                                .scaledToFill()
+                                .frame(width: 48, height: 48)
+                                .clipShape(Rectangle())
+                    }
+                    .sheet(isPresented: $imagePickerPresented,
+                           onDismiss: loadImage,
+                           content: { ImagePicker(image: $selectedImage) })
                     
                     WritingArea(placeholder: "추억을 남겨보세요...", text: $caption)
                 }
+                .padding()
+                
+                Text("비밀글 체크")
                 
             }
             .navigationTitle("글 쓰기")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button {
-                        
-                    } label: {
-                        Text("취소")
-                    }
-                }
-                
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         
@@ -52,3 +61,12 @@ struct WritingView_Previews: PreviewProvider {
         WritingView()
     }
 }
+
+extension WritingView {
+    
+    func loadImage() {
+        guard let selectedImage = selectedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
+    }
+}
+
