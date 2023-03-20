@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WritingView: View {
+    
+    @State private var privatePost = false
     //Image 관련
     @State private var imagePickerPresented = false
     @State private var selectedImage: UIImage?
@@ -38,8 +40,23 @@ struct WritingView: View {
                 }
                 .padding()
                 
-                Text("비밀글 체크")
-                
+                Button {
+                    privatePost.toggle()
+                } label: {
+                    HStack {
+                        Text("나만보기")
+                            .foregroundColor(.primary)
+                        
+                        if privatePost {
+                            Image(systemName: "checkmark.square")
+                                .foregroundColor(Color("SpaceYellow"))
+                        } else {
+                            Image(systemName: "square")
+                                .foregroundColor(Color("SpaceYellow"))
+                        }
+                    }
+                }
+                .padding()
             }
             .navigationTitle("글 쓰기")
             .navigationBarTitleDisplayMode(.inline)
