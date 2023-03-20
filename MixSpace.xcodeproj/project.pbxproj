@@ -25,6 +25,7 @@
 		8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB629C6D9F2005788BF /* WritingView.swift */; };
 		8C024DB929C6E773005788BF /* WritingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB829C6E773005788BF /* WritingArea.swift */; };
 		8C024DC029C81F5D005788BF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DBF29C81F5D005788BF /* ImagePicker.swift */; };
+		8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DC429C886AB005788BF /* FirebaseManager.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		8C024DB629C6D9F2005788BF /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
 		8C024DB829C6E773005788BF /* WritingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingArea.swift; sourceTree = "<group>"; };
 		8C024DBF29C81F5D005788BF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		8C024DC429C886AB005788BF /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,21 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		8C024DC329C884AE005788BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C024DC629C886B4005788BF /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8C024DC429C886AB005788BF /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -259,9 +276,11 @@
 			children = (
 				8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */,
 				8C024D8029C09756005788BF /* ContentView.swift */,
+				8C024DC329C884AE005788BF /* Model */,
 				8CBB345129BF5A7C00B98E4A /* View */,
 				8C024DBE29C81F24005788BF /* Utils */,
 				8C024D8429C1EF3A005788BF /* Components */,
+				8C024DC629C886B4005788BF /* Managers */,
 				8CBB341A29BEF94100B98E4A /* Assets.xcassets */,
 				8CBB345029BF451D00B98E4A /* MixSpace.entitlements */,
 				8CBB344E29BF3EBA00B98E4A /* GoogleService-Info.plist */,
@@ -393,6 +412,7 @@
 				8C024D8629C1EFC2005788BF /* NewStarPost.swift in Sources */,
 				8CBB345429BF5AA800B98E4A /* LoginViewModel.swift in Sources */,
 				8C024DAC29C488E1005788BF /* HomeViewModel.swift in Sources */,
+				8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
 			);

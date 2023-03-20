@@ -36,13 +36,30 @@ class LoginViewModel: ObservableObject {
                 print(err.localizedDescription)
             }
             
-            print("Loggen In Success: \(result?.user.uid ?? "")")
+            let res = result?.user
+            self.storeUserInformation(email: res?.email ?? "", uid: res?.uid ?? "")
+            print("로그인: \(result?.user.uid ?? "")")
+            print("Loggen In Success: \(result?.user.email ?? "")")
             
             withAnimation(.easeInOut) {
                 self.logStatus = true
             }
         }
     }
+    
+    private func storeUserInformation(email: String, uid: String) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        let userData = ["email": email, "uid": uid] //uid를 같이 저장하면 더 편해짐
+        FirebaseManager.shared.fireStore.collection("users") //users라는 컬렉션을 만든다
+            .document(uid).setData(userData) { err in
+                if let err = err {
+                    print(err)
+                    return
+                }
+                print("Success")
+                
+            }
+        }
 }
 
 // Helper for Apple Login with Firebase
