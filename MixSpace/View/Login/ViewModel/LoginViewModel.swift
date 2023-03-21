@@ -49,7 +49,7 @@ class LoginViewModel: ObservableObject {
     private func storeUserInformation() {
         guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let userData = ["email": email, "uid": uid] //uid를 같이 저장하면 더 편해짐
+        let userData = ["email": email, "uid": uid]
         FirebaseManager.shared.fireStore.collection("users") //users라는 컬렉션을 만든다
             .document(uid).setData(userData) { err in
                 if let err = err {

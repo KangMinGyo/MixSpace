@@ -12,7 +12,7 @@ struct UserStatsView: View {
         HStack {
             HStack {
                 Text("2")
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundColor(.primary)
                     .bold()
                 
@@ -23,7 +23,7 @@ struct UserStatsView: View {
             
             HStack {
                 Text("2")
-                    .font(.subheadline)
+                    .font(.headline)
                     .foregroundColor(.primary)
                     .bold()
                 

@@ -10,6 +10,7 @@ import Firebase
 
 struct ProfileView: View {
     
+    @StateObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
     @State private var selectionFilter: ProfileFilterViewModel = .space
     let columns = [GridItem(.flexible()),
@@ -20,12 +21,52 @@ struct ProfileView: View {
     
     var body: some View {
         
-        VStack {
+        VStack(alignment: .leading) {
             HeaderView
             
-            filterBar
+            HStack() {
+                HStack(spacing: 30) {
+                    VStack {
+                        Text("21")
+                        Text("게시글")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+                    }
+                    
+                    VStack {
+                        Text("7")
+                        Text("팔로우")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+                    }
+                    
+                    VStack {
+                        Text("10")
+                        Text("팔로워")
+                            .foregroundColor(.gray)
+                            .font(.subheadline)
+                    }
+                }
+
+                Spacer()
+                
+                Button {
+                    // Go to Profile Edit View
+                } label: {
+                    Text("프로필 편집")
+                        .font(.subheadline)
+                        .padding(.vertical, 10)
+                        .padding(.horizontal, 20)
+                        .foregroundColor(.white)
+                        .background(Color("SpaceYellow"))
+                        .cornerRadius(30)
+                }
+            }
+            .padding(.horizontal)
+
+            //            filterBar
             
-            gridView
+            //            gridView
             
             Spacer()
         }
@@ -43,32 +84,35 @@ struct MyView_Previews: PreviewProvider {
 extension ProfileView {
     private var HeaderView: some View {
         ZStack(alignment: .bottomLeading) {
-            Color("SpaceBlue")
-
-            HStack {
-                Image("Profile")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 72, height: 72)
-                    .clipShape(Circle())
-                
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("이훈이")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                    Text("주먹밥러버")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
+            Color("SpaceWhite")
+            
+            VStack(alignment: .leading) {
+                HStack {
+                    Image("Profile")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 72, height: 72)
+                        .clipShape(Circle())
                     
-                    Button {
-                        // 친구 목록으로 이동
-                    } label: {
-                        UserStatsView()
+                    VStack(alignment: .leading, spacing: 4) {
+                        //                    Text(vm.user?.email ?? "")
+                        Text("이훈이")
+                            .font(.headline)
+                            .foregroundColor(.gray)
+                        Text("@ 주먹밥러버")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        Text("주먹밥머리 훈이예용")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
+                        
                     }
+                    
+                    Spacer()
                 }
-                Spacer()
+                .padding(.horizontal)
             }
-            .padding()
+            .padding(.bottom, 20)
         }
         .frame(height: 300)
     }
@@ -101,20 +145,20 @@ extension ProfileView {
         }
     }
     
-    private var gridView: some View {
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 2) {
-                ForEach(0...4, id: \.self) { index in
-                    Image("TestImage")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: imageDimension ,height: imageDimension)
-                        .border(Color.white)
-                        .clipped()
-                }
-            }
-        }
-    }
+//    private var gridView: some View {
+//        ScrollView {
+//            LazyVGrid(columns: columns, spacing: 2) {
+//                ForEach(0...4, id: \.self) { index in
+//                    Image("TestImage")
+//                        .resizable()
+//                        .scaledToFill()
+//                        .frame(width: imageDimension ,height: imageDimension)
+//                        .border(Color.white)
+//                        .clipped()
+//                }
+//            }
+//        }
+//    }
 }
 
 //Text("애플 로그인 완료")
