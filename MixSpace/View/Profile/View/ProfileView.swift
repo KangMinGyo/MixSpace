@@ -24,45 +24,7 @@ struct ProfileView: View {
         VStack(alignment: .leading) {
             HeaderView
             
-            HStack() {
-                HStack(spacing: 30) {
-                    VStack {
-                        Text("21")
-                        Text("게시글")
-                            .foregroundColor(.gray)
-                            .font(.subheadline)
-                    }
-                    
-                    VStack {
-                        Text("7")
-                        Text("팔로우")
-                            .foregroundColor(.gray)
-                            .font(.subheadline)
-                    }
-                    
-                    VStack {
-                        Text("10")
-                        Text("팔로워")
-                            .foregroundColor(.gray)
-                            .font(.subheadline)
-                    }
-                }
-
-                Spacer()
-                
-                Button {
-                    // Go to Profile Edit View
-                } label: {
-                    Text("프로필 편집")
-                        .font(.subheadline)
-                        .padding(.vertical, 10)
-                        .padding(.horizontal, 20)
-                        .foregroundColor(.white)
-                        .background(Color("SpaceYellow"))
-                        .cornerRadius(30)
-                }
-            }
-            .padding(.horizontal)
+            infoView
 
             //            filterBar
             
@@ -117,33 +79,75 @@ extension ProfileView {
         .frame(height: 300)
     }
     
-    private var filterBar: some View {
-        HStack {
-            ForEach(ProfileFilterViewModel.allCases, id: \.rawValue) { item in
+    private var infoView: some View {
+        HStack() {
+            HStack(spacing: 30) {
                 VStack {
-                    Text("\(item.title)")
+                    Text("21")
+                    Text("게시글")
+                        .foregroundColor(.gray)
                         .font(.subheadline)
-                        .fontWeight(selectionFilter == item ? .semibold : .regular)
-                        .foregroundColor(selectionFilter == item ? .primary : .gray)
-                    
-                    if selectionFilter == item {
-                        Rectangle()
-                            .foregroundColor(Color("SpaceYellow"))
-                            .frame(height: 3)
-                    } else {
-                        Rectangle()
-                            .foregroundColor(Color("SpaceWhite"))
-                            .frame(height: 3)
-                    }
                 }
-                .onTapGesture {
-                    withAnimation(.easeInOut) {
-                        self.selectionFilter = item
-                    }
+                
+                VStack {
+                    Text("7")
+                    Text("팔로우")
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
+                }
+                
+                VStack {
+                    Text("10")
+                    Text("팔로워")
+                        .foregroundColor(.gray)
+                        .font(.subheadline)
                 }
             }
+
+            Spacer()
+            
+            NavigationLink {
+                ProfileEditView()
+            } label: {
+                Text("프로필 편집")
+                    .font(.subheadline)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 20)
+                    .foregroundColor(.white)
+                    .background(Color("SpaceYellow"))
+                    .cornerRadius(30)
+            }
         }
+        .padding(.horizontal)
     }
+    
+//    private var filterBar: some View {
+//        HStack {
+//            ForEach(ProfileFilterViewModel.allCases, id: \.rawValue) { item in
+//                VStack {
+//                    Text("\(item.title)")
+//                        .font(.subheadline)
+//                        .fontWeight(selectionFilter == item ? .semibold : .regular)
+//                        .foregroundColor(selectionFilter == item ? .primary : .gray)
+//
+//                    if selectionFilter == item {
+//                        Rectangle()
+//                            .foregroundColor(Color("SpaceYellow"))
+//                            .frame(height: 3)
+//                    } else {
+//                        Rectangle()
+//                            .foregroundColor(Color("SpaceWhite"))
+//                            .frame(height: 3)
+//                    }
+//                }
+//                .onTapGesture {
+//                    withAnimation(.easeInOut) {
+//                        self.selectionFilter = item
+//                    }
+//                }
+//            }
+//        }
+//    }
     
 //    private var gridView: some View {
 //        ScrollView {
