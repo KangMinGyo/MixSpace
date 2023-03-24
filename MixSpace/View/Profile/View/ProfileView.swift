@@ -103,7 +103,7 @@ extension ProfileView {
                         .font(.subheadline)
                 }
             }
-
+            
             Spacer()
             
             NavigationLink {
@@ -120,62 +120,4 @@ extension ProfileView {
         }
         .padding(.horizontal)
     }
-    
-//    private var filterBar: some View {
-//        HStack {
-//            ForEach(ProfileFilterViewModel.allCases, id: \.rawValue) { item in
-//                VStack {
-//                    Text("\(item.title)")
-//                        .font(.subheadline)
-//                        .fontWeight(selectionFilter == item ? .semibold : .regular)
-//                        .foregroundColor(selectionFilter == item ? .primary : .gray)
-//
-//                    if selectionFilter == item {
-//                        Rectangle()
-//                            .foregroundColor(Color("SpaceYellow"))
-//                            .frame(height: 3)
-//                    } else {
-//                        Rectangle()
-//                            .foregroundColor(Color("SpaceWhite"))
-//                            .frame(height: 3)
-//                    }
-//                }
-//                .onTapGesture {
-//                    withAnimation(.easeInOut) {
-//                        self.selectionFilter = item
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-//    private var gridView: some View {
-//        ScrollView {
-//            LazyVGrid(columns: columns, spacing: 2) {
-//                ForEach(0...4, id: \.self) { index in
-//                    Image("TestImage")
-//                        .resizable()
-//                        .scaledToFill()
-//                        .frame(width: imageDimension ,height: imageDimension)
-//                        .border(Color.white)
-//                        .clipped()
-//                }
-//            }
-//        }
-//    }
 }
-
-//Text("애플 로그인 완료")
-//
-//Button {
-//    DispatchQueue.global(qos: .background).async {
-//        try? Auth.auth().signOut()
-//    }
-//
-//    withAnimation(.easeInOut) {
-//        logStatus = false
-//    }
-//
-//} label: {
-//    Text("Log Out")
-//}
