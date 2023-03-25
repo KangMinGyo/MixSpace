@@ -16,7 +16,7 @@ struct HomeView: View {
             ScrollView {
                 LazyVStack {
                     ForEach(0...20, id: \.self) { num in
-                        NewStarPost()
+                        NewPost()
 
                     }
                 }
