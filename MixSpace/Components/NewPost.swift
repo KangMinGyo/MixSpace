@@ -18,7 +18,8 @@ struct NewPost: View {
                     .clipShape(Circle())
                 VStack(alignment: .leading) {
                     Text("주먹밥러버")
-                        .font(.headline)
+                        .font(.system(size: 15))
+                        .bold()
                     Text("2023.03.15")
                         .font(.caption)
                         .foregroundColor(.gray)
@@ -39,10 +40,17 @@ struct NewPost: View {
                 
                 HStack {
                     Button {
-                        
+                        //종아요
                     } label: {
                         Image(systemName: "heart")
                             .font(.title3)
+                            .foregroundColor(Color("SpaceBlue"))
+                    }
+                    Button {
+                        // 공유
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 19))
                             .foregroundColor(Color("SpaceBlue"))
                     }
                 }
@@ -70,7 +78,7 @@ struct NewPost: View {
             .padding(.vertical, 4)
             
         }
-        Divider()
+//        Divider()
     }
 }
 

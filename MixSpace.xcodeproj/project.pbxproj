@@ -33,6 +33,7 @@
 		8C024DD129C97C67005788BF /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8C024DD029C97C67005788BF /* FirebaseFirestoreSwift */; };
 		8C024DD329C97C67005788BF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8C024DD229C97C67005788BF /* FirebaseStorage */; };
 		8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DD729C9991B005788BF /* ProfileEditView.swift */; };
+		8C024DDB29D068B0005788BF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDA29D068B0005788BF /* View+Extension.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		8C024DC729C97A68005788BF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		8C024DC929C97B55005788BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C024DD729C9991B005788BF /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
+		8C024DDA29D068B0005788BF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -273,6 +275,14 @@
 			path = ProfileEdit;
 			sourceTree = "<group>";
 		};
+		8C024DD929D06893005788BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8C024DDA29D068B0005788BF /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +309,7 @@
 				8C024DBE29C81F24005788BF /* Utils */,
 				8C024D8429C1EF3A005788BF /* Components */,
 				8C024DC629C886B4005788BF /* Managers */,
+				8C024DD929D06893005788BF /* Extensions */,
 				8CBB341A29BEF94100B98E4A /* Assets.xcassets */,
 				8CBB345029BF451D00B98E4A /* MixSpace.entitlements */,
 				8CBB344E29BF3EBA00B98E4A /* GoogleService-Info.plist */,
@@ -421,6 +432,7 @@
 				8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */,
 				8C024D8E29C2F02E005788BF /* MainView.swift in Sources */,
 				8C024DC029C81F5D005788BF /* ImagePicker.swift in Sources */,
+				8C024DDB29D068B0005788BF /* View+Extension.swift in Sources */,
 				8C024D9529C300F4005788BF /* ProfileFilterViewModel.swift in Sources */,
 				8C024DC829C97A68005788BF /* ProfileViewModel.swift in Sources */,
 				8C024D8129C09756005788BF /* ContentView.swift in Sources */,

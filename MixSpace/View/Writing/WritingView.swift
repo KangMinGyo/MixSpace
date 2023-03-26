@@ -37,27 +37,22 @@ struct WritingView: View {
                            content: { ImagePicker(image: $selectedImage) })
                     
                     WritingArea(placeholder: "추억을 남겨보세요...", text: $caption)
+                        .onTapGesture {
+                            self.endTextEditing()
+                        }
                 }
                 .padding()
                 
-                Button {
-                    privatePost.toggle()
-                } label: {
+                Toggle(isOn: $privatePost) {
                     HStack {
-                        Text("나만보기")
-                            .foregroundColor(.primary)
+                        Image(systemName: "lock")
                         
-                        if privatePost {
-                            Image(systemName: "checkmark.square")
-                                .foregroundColor(Color("SpaceYellow"))
-                        } else {
-                            Image(systemName: "square")
-                                .foregroundColor(Color("SpaceYellow"))
-                        }
+                        Text("나만 보기")
                     }
                 }
-                .padding()
+                .padding(.horizontal)
             }
+            .padding(.bottom)
             .navigationTitle("글 쓰기")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
