@@ -55,11 +55,7 @@ struct NewPost: View {
                     }
                 }
                 .padding(.bottom, 4)
-                
-                Text("주먹밥 만든 날")
-                    .font(.system(size: 15))
-                    .bold()
-                
+
                 Text("오늘 떡잎마을방범대 친구들과 주먹밥을 만들었다!")
                     .font(.subheadline)
                 

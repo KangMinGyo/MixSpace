@@ -10,6 +10,7 @@ import SwiftUI
 struct WritingView: View {
     
     @State private var privatePost = false
+    @State private var privateComment = false
     //Image 관련
     @State private var imagePickerPresented = false
     @State private var selectedImage: UIImage?
@@ -38,7 +39,7 @@ struct WritingView: View {
                     
                     WritingArea(placeholder: "추억을 남겨보세요...", text: $caption)
                         .onTapGesture {
-                            self.endTextEditing()
+                            self.hideKeyboard()
                         }
                 }
                 .padding()
@@ -46,8 +47,21 @@ struct WritingView: View {
                 Toggle(isOn: $privatePost) {
                     HStack {
                         Image(systemName: "lock")
+                            .font(.title3)
                         
-                        Text("나만 보기")
+                        Text("나만보기")
+                            .font(.callout)
+                    }
+                }
+                .padding()
+                
+                Toggle(isOn: $privateComment) {
+                    HStack {
+                        Image(systemName: "bubble.left")
+                            .font(.system(size: 16))
+                        
+                        Text("댓글허용")
+                            .font(.callout)
                     }
                 }
                 .padding(.horizontal)
