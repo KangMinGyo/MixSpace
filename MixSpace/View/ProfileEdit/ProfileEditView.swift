@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ProfileEditView: View {
+
+    @Environment(\.dismiss) private var dismiss
     
-    @State var name: String = ""
-    @State var nickName: String = ""
-    @State var introduce: String = ""
+    @StateObject var vm = ProfileEditViewModel()
     
     var body: some View {
         NavigationView {
@@ -26,12 +26,14 @@ struct ProfileEditView: View {
             }
         }
         .ignoresSafeArea()
-        .navigationTitle("프로필 수정")
+        .navigationTitle("프로필 편집")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    //프로필 수정
+                    vm.editCurrentUser()
+                    dismiss()
+                    
                 } label: {
                     Text("완료")
                         .foregroundColor(.primary)
@@ -91,20 +93,23 @@ extension ProfileEditView {
     private var infoEditView: some View {
         VStack(alignment: .leading) {
             Text("이름")
-            TextField(text: $name) {
-                Text("이훈이")
+            TextField(text: $vm.name) {
+                Text(vm.name)
+                    .foregroundColor(.gray)
             }
             Divider()
             
             Text("별명")
-            TextField(text: $nickName) {
-                Text("주먹밥러버")
+            TextField(text: $vm.nickName) {
+                Text(vm.nickName)
+                    .foregroundColor(.gray)
             }
             Divider()
             
             Text("소개")
-            TextField(text: $introduce) {
-                Text("주먹밥머리 훈이예용")
+            TextField(text: $vm.introText) {
+                Text(vm.introText)
+                    .foregroundColor(.gray)
             }
             Divider()
         }

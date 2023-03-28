@@ -34,6 +34,8 @@
 		8C024DD329C97C67005788BF /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 8C024DD229C97C67005788BF /* FirebaseStorage */; };
 		8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DD729C9991B005788BF /* ProfileEditView.swift */; };
 		8C024DDB29D068B0005788BF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDA29D068B0005788BF /* View+Extension.swift */; };
+		8C024DDD29D1C665005788BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDC29D1C665005788BF /* Post.swift */; };
+		8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		8C024DC929C97B55005788BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C024DD729C9991B005788BF /* ProfileEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditView.swift; sourceTree = "<group>"; };
 		8C024DDA29D068B0005788BF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		8C024DDC29D1C665005788BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				8C024DC929C97B55005788BF /* User.swift */,
+				8C024DDC29D1C665005788BF /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				8C024DD729C9991B005788BF /* ProfileEditView.swift */,
+				8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */,
 			);
 			path = ProfileEdit;
 			sourceTree = "<group>";
@@ -448,6 +454,8 @@
 				8C024DCA29C97B55005788BF /* User.swift in Sources */,
 				8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */,
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
+				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
+				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
 			);

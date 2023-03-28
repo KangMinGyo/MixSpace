@@ -57,18 +57,18 @@ extension ProfileView {
                         .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        //                    Text(vm.user?.email ?? "")
-                        Text("이훈이")
+                        Text(vm.user?.name ?? "")
                             .font(.headline)
                             .foregroundColor(.gray)
-                        Text("@ 주먹밥러버")
+                        Text("@\(Text(vm.user?.nickName ?? ""))")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        Text("주먹밥머리 훈이예용")
+                        Text(vm.user?.introText ?? "")
                             .font(.subheadline)
                             .foregroundColor(.gray)
                         
                     }
+                    .onAppear(perform: vm.fetchCurrentUser)
                     
                     Spacer()
                 }
@@ -91,14 +91,14 @@ extension ProfileView {
                 
                 VStack {
                     Text("7")
-                    Text("팔로우")
+                    Text("팔로워")
                         .foregroundColor(.gray)
                         .font(.subheadline)
                 }
                 
                 VStack {
                     Text("10")
-                    Text("팔로워")
+                    Text("팔로잉")
                         .foregroundColor(.gray)
                         .font(.subheadline)
                 }
