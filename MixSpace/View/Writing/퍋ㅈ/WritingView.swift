@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WritingView: View {
     
+    @StateObject var vm = WritingViewModel()
+    
     @State private var privatePost = false
     @State private var privateComment = false
     //Image 관련
@@ -16,7 +18,7 @@ struct WritingView: View {
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     
-    @State private var caption = ""
+//    @State private var caption = ""
     
     var body: some View {
         NavigationView {
@@ -35,9 +37,9 @@ struct WritingView: View {
                     }
                     .sheet(isPresented: $imagePickerPresented,
                            onDismiss: loadImage,
-                           content: { ImagePicker(image: $selectedImage) })
+                           content: { ImagePicker(image: $vm.selectedImage) })
                     
-                    WritingArea(placeholder: "추억을 남겨보세요...", text: $caption)
+                    WritingArea(placeholder: "추억을 남겨보세요...", text: $vm.text)
                         .onTapGesture {
                             self.hideKeyboard()
                         }
@@ -72,7 +74,7 @@ struct WritingView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        
+                        vm.persistImageToStorage()
                     } label: {
                         Text("등록")
                     }
@@ -91,7 +93,7 @@ struct WritingView_Previews: PreviewProvider {
 extension WritingView {
     
     func loadImage() {
-        guard let selectedImage = selectedImage else { return }
+        guard let selectedImage = vm.selectedImage else { return }
         profileImage = Image(uiImage: selectedImage)
     }
 }

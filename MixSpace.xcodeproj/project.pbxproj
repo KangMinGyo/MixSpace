@@ -36,6 +36,7 @@
 		8C024DDB29D068B0005788BF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDA29D068B0005788BF /* View+Extension.swift */; };
 		8C024DDD29D1C665005788BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDC29D1C665005788BF /* Post.swift */; };
 		8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */; };
+		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		8C024DDA29D068B0005788BF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		8C024DDC29D1C665005788BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
+		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -241,8 +243,8 @@
 		8C024DB529C6D9C8005788BF /* Writing */ = {
 			isa = PBXGroup;
 			children = (
-				8C024DB629C6D9F2005788BF /* WritingView.swift */,
-				8C024DB829C6E773005788BF /* WritingArea.swift */,
+				8C7608ED29D40297004DD238 /* View */,
+				8C7608EE29D402A7004DD238 /* ViewModel */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -287,6 +289,24 @@
 				8C024DDA29D068B0005788BF /* View+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8C7608ED29D40297004DD238 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C024DB629C6D9F2005788BF /* WritingView.swift */,
+				8C024DB829C6E773005788BF /* WritingArea.swift */,
+			);
+			name = View;
+			path = "퍋ㅈ";
+			sourceTree = "<group>";
+		};
+		8C7608EE29D402A7004DD238 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8C7608EF29D402C5004DD238 /* WritingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8CBB340A29BEF93F00B98E4A = {
@@ -453,6 +473,7 @@
 				8C024DAC29C488E1005788BF /* HomeViewModel.swift in Sources */,
 				8C024DCA29C97B55005788BF /* User.swift in Sources */,
 				8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */,
+				8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */,
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
