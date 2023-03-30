@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct NewPost: View {
     let post: Post
@@ -34,7 +35,7 @@ struct NewPost: View {
                 .padding(.horizontal)
             }
 
-            Image("Photo")
+            WebImage(url: URL(string: post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: 250)

@@ -73,6 +73,12 @@ struct WritingView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
+//                    NavigationLink {
+//                        HomeView()
+//                    } label: {
+//                        Text("등록")
+//                    }
+
                     Button {
                         vm.uploadPost()
                     } label: {
