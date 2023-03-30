@@ -10,13 +10,14 @@ import SwiftUI
 struct HomeView: View {
     
     @State var showMenu = false
+    @ObservedObject var vm = HomeViewModel()
 
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(0...20, id: \.self) { num in
-                        NewPost()
+                    ForEach(vm.posts) { post in
+                        NewPost(post: post)
 
                     }
                 }

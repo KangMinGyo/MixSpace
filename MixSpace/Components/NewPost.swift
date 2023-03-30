@@ -8,26 +8,32 @@
 import SwiftUI
 
 struct NewPost: View {
+    let post: Post
+    
     var body: some View {
         VStack() {
-            HStack {
-                Image("Profile")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 36, height: 36)
-                    .clipShape(Circle())
-                VStack(alignment: .leading) {
-                    Text("주먹밥러버")
-                        .font(.system(size: 15))
-                        .bold()
-                    Text("2023.03.15")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
             
+            if let user = post.user {
+                HStack {
+                    Image("Profile")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 36, height: 36)
+                        .clipShape(Circle())
+                    VStack(alignment: .leading) {
+                        Text("@\(user.nickName)")
+                            .font(.system(size: 15))
+                            .bold()
+                        Text("2023.03.15")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                }
+                
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+            }
+
             Image("Photo")
                 .resizable()
                 .scaledToFill()
@@ -56,7 +62,7 @@ struct NewPost: View {
                 }
                 .padding(.bottom, 4)
 
-                Text("오늘 떡잎마을방범대 친구들과 주먹밥을 만들었다!")
+                Text(post.text) //*
                     .font(.subheadline)
                 
                 HStack {
@@ -74,12 +80,11 @@ struct NewPost: View {
             .padding(.vertical, 4)
             
         }
-//        Divider()
     }
 }
 
-struct NewPost_Previews: PreviewProvider {
-    static var previews: some View {
-        NewPost()
-    }
-}
+//struct NewPost_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NewPost()
+//    }
+//}

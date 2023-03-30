@@ -37,6 +37,8 @@
 		8C024DDD29D1C665005788BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDC29D1C665005788BF /* Post.swift */; };
 		8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
+		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
+		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -74,6 +76,8 @@
 		8C024DDC29D1C665005788BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
+		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
+		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -309,6 +313,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8C886FAC29D56119008117AC /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8C886FAD29D56132008117AC /* PostService.swift */,
+				8C886FAF29D5AA4C008117AC /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +347,7 @@
 				8CBB345129BF5A7C00B98E4A /* View */,
 				8C024DBE29C81F24005788BF /* Utils */,
 				8C024D8429C1EF3A005788BF /* Components */,
+				8C886FAC29D56119008117AC /* Service */,
 				8C024DC629C886B4005788BF /* Managers */,
 				8C024DD929D06893005788BF /* Extensions */,
 				8CBB341A29BEF94100B98E4A /* Assets.xcassets */,
@@ -463,6 +477,7 @@
 				8C024DC829C97A68005788BF /* ProfileViewModel.swift in Sources */,
 				8C024D8129C09756005788BF /* ContentView.swift in Sources */,
 				8C024DA629C43B7D005788BF /* SideMenuView.swift in Sources */,
+				8C886FB029D5AA4C008117AC /* UserService.swift in Sources */,
 				8C024DAA29C47A34005788BF /* UserStatsView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
@@ -475,6 +490,7 @@
 				8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */,
 				8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */,
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
+				8C886FAE29D56132008117AC /* PostService.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,

@@ -74,7 +74,7 @@ struct WritingView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        vm.persistImageToStorage()
+                        vm.uploadPost()
                     } label: {
                         Text("등록")
                     }
