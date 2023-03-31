@@ -10,19 +10,45 @@ import SwiftUI
 struct HomeView: View {
     
     @State var showMenu = false
+    @State var showNewPostView = false
     @ObservedObject var vm = HomeViewModel()
 
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVStack {
-                    ForEach(vm.posts) { post in
-                        NewPost(post: post)
-
+            ZStack(alignment: .bottomTrailing) {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(vm.posts) { post in
+                            NewPost(post: post)
+                        }
                     }
                 }
+                .padding(.vertical)
+                
+                Button {
+                    showNewPostView.toggle()
+                } label: {
+                    Image(systemName: "pencil.line")
+                        .font(.system(size: 20))
+                        .foregroundColor(.white)
+                        .background(
+                            Circle()
+                                .fill(
+                                    LinearGradient(colors: [Color.yellow, Color.green],
+                                                   startPoint: .topLeading,
+                                                   endPoint: .bottomTrailing)
+                                )
+                                .frame(width: 50, height: 50)
+                                .shadow(radius: 10)
+                        )
+                }
+                .padding(.bottom, 20)
+                .padding(.trailing, 40)
+                .fullScreenCover(isPresented: $showNewPostView) {
+                    WritingView()
+                }
             }
-            .padding(.vertical)
+            .onAppear(perform: vm.fetchPost)
         }
     }
 }

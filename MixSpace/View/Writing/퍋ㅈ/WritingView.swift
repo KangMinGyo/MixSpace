@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WritingView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     @StateObject var vm = WritingViewModel()
     
     @State private var privatePost = false
@@ -73,14 +75,9 @@ struct WritingView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-//                    NavigationLink {
-//                        HomeView()
-//                    } label: {
-//                        Text("등록")
-//                    }
-
                     Button {
                         vm.uploadPost()
+                        dismiss()
                     } label: {
                         Text("등록")
                     }

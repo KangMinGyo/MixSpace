@@ -11,46 +11,40 @@ import Firebase
 struct MainView: View {
     
     @State var selection = 0
-    let title = ["Home", "Space", "+", "Heart","My"]
+    let title = ["Home", "Space", "Heart","My"]
     
     var body: some View {
         NavigationView {
-            VStack {
-                TabView(selection: $selection) {
-                    HomeContentView()
-                        .tabItem {
-                            Image(systemName: "sun.max")
-                            Text("Space")
-                        }
-                        .tag(0)
-                    Text("MySpace")
-                        .tabItem {
-                            Image(systemName: "moonphase.full.moon")
-                            Text("MySpace")
-                        }
-                        .tag(1)
-                    WritingView()
-                        .tabItem {
-                            Image(systemName: "plus.circle")
-                            Text("+")
-                        }
-                        .tag(2)
-                    SearchView()
-                        .tabItem {
-                            Image(systemName: "magnifyingglass")
-                            Text("Search")
-                        }
-                        .tag(3)
-                    ProfileView()
-                        .tabItem {
-                            Image(systemName: "person.circle.fill")
-                            Text("My")
-                        }
-                        .tag(4)
-                    
+            ZStack(alignment: .bottomTrailing) {
+                VStack {
+                    TabView(selection: $selection) {
+                        HomeContentView()
+                            .tabItem {
+                                Image(systemName: "sun.max")
+                                Text("Space")
+                            }
+                            .tag(0)
+                        Text("MySpace")
+                            .tabItem {
+                                Image(systemName: "moonphase.full.moon")
+                                Text("MySpace")
+                            }
+                            .tag(1)
+                        SearchView()
+                            .tabItem {
+                                Image(systemName: "magnifyingglass")
+                                Text("Search")
+                            }
+                            .tag(2)
+                        ProfileView()
+                            .tabItem {
+                                Image(systemName: "person.circle.fill")
+                                Text("My")
+                            }
+                            .tag(3)
+                        
+                    }
                 }
-//                .navigationTitle(title[selection])
-                
             }
         }
     }
