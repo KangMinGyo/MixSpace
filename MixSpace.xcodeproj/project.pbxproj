@@ -23,7 +23,7 @@
 		8C024DB229C5AD14005788BF /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB129C5AD14005788BF /* SideMenuOptionView.swift */; };
 		8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB329C5F2BE005788BF /* SideMenuViewModel.swift */; };
 		8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB629C6D9F2005788BF /* WritingView.swift */; };
-		8C024DB929C6E773005788BF /* WritingArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB829C6E773005788BF /* WritingArea.swift */; };
+		8C024DB929C6E773005788BF /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DB829C6E773005788BF /* TextArea.swift */; };
 		8C024DC029C81F5D005788BF /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DBF29C81F5D005788BF /* ImagePicker.swift */; };
 		8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DC429C886AB005788BF /* FirebaseManager.swift */; };
 		8C024DC829C97A68005788BF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DC729C97A68005788BF /* ProfileViewModel.swift */; };
@@ -40,8 +40,8 @@
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
 		8C886FB329D5C4FC008117AC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8C886FB229D5C4FC008117AC /* SDWebImageSwiftUI */; };
-		8C886FB529D6BC98008117AC /* LoginArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FB429D6BC98008117AC /* LoginArea.swift */; };
 		8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FB929D6FAC9008117AC /* SignUpView.swift */; };
+		8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -69,7 +69,7 @@
 		8C024DB129C5AD14005788BF /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		8C024DB329C5F2BE005788BF /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		8C024DB629C6D9F2005788BF /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
-		8C024DB829C6E773005788BF /* WritingArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingArea.swift; sourceTree = "<group>"; };
+		8C024DB829C6E773005788BF /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		8C024DBF29C81F5D005788BF /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		8C024DC429C886AB005788BF /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		8C024DC729C97A68005788BF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -81,8 +81,8 @@
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		8C886FB429D6BC98008117AC /* LoginArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginArea.swift; sourceTree = "<group>"; };
 		8C886FB929D6FAC9008117AC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -117,6 +117,7 @@
 				8C024D8529C1EFC2005788BF /* NewPost.swift */,
 				8C024D9B29C429AC005788BF /* UserRowProfile.swift */,
 				8C024DA929C47A34005788BF /* UserStatsView.swift */,
+				8C024DB829C6E773005788BF /* TextArea.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -176,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				8CBB341829BEF93F00B98E4A /* LoginView.swift */,
-				8C886FB429D6BC98008117AC /* LoginArea.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				8C024DB629C6D9F2005788BF /* WritingView.swift */,
-				8C024DB829C6E773005788BF /* WritingArea.swift */,
 			);
 			name = View;
 			path = "퍋ㅈ";
@@ -333,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				8C886FB929D6FAC9008117AC /* SignUpView.swift */,
+				8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -500,7 +500,7 @@
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
 				8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
-				8C024DB929C6E773005788BF /* WritingArea.swift in Sources */,
+				8C024DB929C6E773005788BF /* TextArea.swift in Sources */,
 				8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */,
 				8C024D8629C1EFC2005788BF /* NewPost.swift in Sources */,
 				8CBB345429BF5AA800B98E4A /* LoginViewModel.swift in Sources */,
@@ -511,9 +511,9 @@
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
 				8C886FAE29D56132008117AC /* PostService.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
-				8C886FB529D6BC98008117AC /* LoginArea.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
+				8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

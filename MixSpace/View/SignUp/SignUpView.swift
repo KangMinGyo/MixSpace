@@ -8,22 +8,36 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @State var email = ""
-    @State var password = ""
+    
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var vm = SignUpViewModel()
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text("이메일")
-                TextField(
-                        "ex)space2023@space.com",
-                        text: $email
-                    )
-                    .submitLabel(.done)
-                    .onSubmit {
-                        //로직
+            ScrollView {
+                VStack {
+                    emailView
+                    
+                    Button {
+                        vm.handleAction()
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Spacer()
+                            Text("회원가입")
+                                .foregroundColor(.white)
+                                .padding(.vertical, 15)
+                                .font(.system(size: 14, weight: .semibold))
+                            Spacer()
+                        }
+                        .background(Color.black)
+                        .clipShape(Capsule())
+                        .padding(.horizontal, 30)
                     }
+
+                }
             }
+            .navigationTitle("회원가입")
         }
     }
 }
@@ -31,5 +45,33 @@ struct SignUpView: View {
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
         SignUpView()
+    }
+}
+
+extension SignUpView {
+    private var emailView: some View {
+        VStack(alignment: .leading) {
+            Text("이메일")
+                .font(.headline)
+                .foregroundColor(.primary)
+            TextArea(placeholder: "ex) space2023@space.com", text: $vm.email)
+                .keyboardType(.emailAddress)
+                .onTapGesture {
+                    self.hideKeyboard()
+                }
+            Divider()
+                .frame(height: 1)
+            
+            Text("비밀번호")
+                .font(.headline)
+                .foregroundColor(.primary)
+            TextArea(placeholder: "password", text: $vm.password)
+                .onTapGesture {
+                    self.hideKeyboard()
+                }
+            Divider()
+                .frame(height: 1)
+            
+        }.padding()
     }
 }

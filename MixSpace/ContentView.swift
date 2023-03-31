@@ -19,6 +19,9 @@ struct ContentView: View {
                 
             } else {
                 LoginView()
+                    .environmentObject(LoginViewModel(didCompleteLoginProcess: {
+                        
+                    }))
             }
         }
     }

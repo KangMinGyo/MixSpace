@@ -1,13 +1,13 @@
 //
-//  LoginArea.swift
+//  WritingArea.swift
 //  MixSpace
 //
-//  Created by KangMingyo on 2023/03/31.
+//  Created by KangMingyo on 2023/03/19.
 //
 
 import SwiftUI
 
-struct LoginArea: View {
+struct TextArea: View {
     
     @Binding var text: String
     let placeholder: String
@@ -21,8 +21,7 @@ struct LoginArea: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             TextEditor(text: $text)
-
-                .padding(4)
+                    .padding(4)
             
             if text.isEmpty {
                 Text("\(placeholder)")

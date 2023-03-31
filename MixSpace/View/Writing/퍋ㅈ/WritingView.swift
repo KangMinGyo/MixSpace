@@ -41,7 +41,7 @@ struct WritingView: View {
                            onDismiss: loadImage,
                            content: { ImagePicker(image: $vm.selectedImage) })
                     
-                    WritingArea(placeholder: "추억을 남겨보세요...", text: $vm.text)
+                    TextArea(placeholder: "추억을 남겨보세요...", text: $vm.text)
                         .onTapGesture {
                             self.hideKeyboard()
                         }

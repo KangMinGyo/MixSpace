@@ -10,9 +10,8 @@ import AuthenticationServices
 
 struct LoginView: View {
     
-    @StateObject var loginData = LoginViewModel()
-    @State var email = ""
-    @State var password = ""
+    @EnvironmentObject private var loginData: LoginViewModel
+    @State var showSignUpView = false
     
     var body: some View {
         VStack {
@@ -38,14 +37,6 @@ struct LoginView: View {
                 .frame(maxWidth: .infinity)
             }
         }
-//        .background(LinearGradient(
-//            colors: [Color("SpaceBlue"),Color("SpaceYellow")],
-//            startPoint: .leading,
-//            endPoint: .trailing
-//        )
-        
-//            .ignoresSafeArea())
-        
     }
     
 }
@@ -87,7 +78,8 @@ extension LoginView {
             Text("이메일")
                 .font(.headline)
                 .foregroundColor(.primary)
-            LoginArea(placeholder: "ex) space2023@space.com", text: $email)
+            TextArea(placeholder: "ex) space2023@space.com", text: $loginData.email)
+                .keyboardType(.emailAddress)
                 .onTapGesture {
                     self.hideKeyboard()
                 }
@@ -97,7 +89,7 @@ extension LoginView {
             Text("비밀번호")
                 .font(.headline)
                 .foregroundColor(.primary)
-            LoginArea(placeholder: "password", text: $password)
+            TextArea(placeholder: "password", text: $loginData.password)
                 .onTapGesture {
                     self.hideKeyboard()
                 }
@@ -110,7 +102,7 @@ extension LoginView {
     private var loginButton: some View {
         VStack(spacing: 10) {
             Button {
-                
+                loginData.loginUser()
             } label: {
                 HStack {
                     Spacer()
@@ -126,11 +118,11 @@ extension LoginView {
             }
             
             Button {
-                
+                showSignUpView.toggle()
             } label: {
                 HStack {
                     Spacer()
-                    Text("회원가입")
+                    Text("이메일로 회원가입")
                         .foregroundColor(.white)
                         .padding(.vertical, 15)
                         .font(.system(size: 14, weight: .semibold))
@@ -139,6 +131,9 @@ extension LoginView {
                 .background(Color.black)
                 .clipShape(Capsule())
                 .padding(.horizontal, 30)
+            }
+            .fullScreenCover(isPresented: $showSignUpView) {
+                SignUpView()
             }
 
         }

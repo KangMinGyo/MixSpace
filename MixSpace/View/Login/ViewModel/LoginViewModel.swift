@@ -18,6 +18,16 @@ class LoginViewModel: ObservableObject {
     @Published var nonce = ""
     @AppStorage("logStatus") var logStatus = false
     
+    //Email Login
+    @Published var email = ""
+    @Published var password = ""
+    @Published var didCompleteLoginProcess: () -> ()
+    
+    init(didCompleteLoginProcess: @escaping () -> Void) {
+        self.didCompleteLoginProcess = didCompleteLoginProcess
+    }
+
+    // Apple Login
     func authenticate(credential: ASAuthorizationAppleIDCredential) {
         //getting token
         guard let token = credential.identityToken else {
@@ -60,6 +70,22 @@ class LoginViewModel: ObservableObject {
                 }
                 print("Success")
             }
+    }
+    
+    // Email로 로그인
+    func loginUser() {
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
+            if let err = error {
+                print("Failed to login user:", err)
+                return
+            }
+            print("Successfully logged in as user: \(result?.user.uid ?? "")")
+            
+            self.didCompleteLoginProcess()
+            withAnimation(.easeInOut) {
+                self.logStatus = true
+            }
+        }
     }
 }
 
