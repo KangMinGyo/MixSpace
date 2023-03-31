@@ -40,6 +40,8 @@
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
 		8C886FB329D5C4FC008117AC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8C886FB229D5C4FC008117AC /* SDWebImageSwiftUI */; };
+		8C886FB529D6BC98008117AC /* LoginArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FB429D6BC98008117AC /* LoginArea.swift */; };
+		8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FB929D6FAC9008117AC /* SignUpView.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -79,6 +81,8 @@
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		8C886FB429D6BC98008117AC /* LoginArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginArea.swift; sourceTree = "<group>"; };
+		8C886FB929D6FAC9008117AC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				8CBB341829BEF93F00B98E4A /* LoginView.swift */,
+				8C886FB429D6BC98008117AC /* LoginArea.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +329,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		8C886FB629D6FA86008117AC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8C886FB929D6FAC9008117AC /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				8C024D9D29C434A8005788BF /* Login */,
+				8C886FB629D6FA86008117AC /* SignUp */,
 				8C024DA029C434EE005788BF /* Main */,
 				8C024DA129C434FC005788BF /* Home */,
 				8C024DB529C6D9C8005788BF /* Writing */,
@@ -484,6 +498,7 @@
 				8C886FB029D5AA4C008117AC /* UserService.swift in Sources */,
 				8C024DAA29C47A34005788BF /* UserStatsView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
+				8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
 				8C024DB929C6E773005788BF /* WritingArea.swift in Sources */,
 				8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */,
@@ -496,6 +511,7 @@
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
 				8C886FAE29D56132008117AC /* PostService.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
+				8C886FB529D6BC98008117AC /* LoginArea.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
