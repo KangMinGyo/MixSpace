@@ -20,8 +20,6 @@ struct WritingView: View {
     @State private var selectedImage: UIImage?
     @State private var profileImage: Image?
     
-//    @State private var caption = ""
-    
     var body: some View {
         NavigationView {
             VStack {
@@ -80,6 +78,13 @@ struct WritingView: View {
                         dismiss()
                     } label: {
                         Text("등록")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("취소")
                     }
                 }
             }
