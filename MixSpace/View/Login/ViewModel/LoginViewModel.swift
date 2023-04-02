@@ -62,7 +62,7 @@ class LoginViewModel: ObservableObject {
         let name = uid.prefix(5)
         let nickname = uid.suffix(5)
         let userData = ["email": email, "uid": uid, "name": name, "nickName": nickname, "introText": "", "postNum": 0, "follower": 0, "following": 0] as [String : Any]
-        FirebaseManager.shared.fireStore.collection("users") //users라는 컬렉션을 만든다
+        FirebaseManager.shared.fireStore.collection("users")
             .document(uid).setData(userData) { err in
                 if let err = err {
                     print(err)

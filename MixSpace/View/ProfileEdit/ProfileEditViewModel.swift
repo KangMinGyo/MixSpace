@@ -9,6 +9,8 @@ import Foundation
 
 class ProfileEditViewModel: ObservableObject {
     
+    let service = UserService()
+    
     @Published var name = ""
     @Published var nickName = ""
     @Published var introText = ""
@@ -34,19 +36,11 @@ class ProfileEditViewModel: ObservableObject {
     
     func fetchCurrentUser() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-
-        FirebaseManager.shared.fireStore.collection("users").document(uid)
-            .getDocument { snapshot, err in
-                if let err = err {
-                    print("Failed to fetch current user:", err)
-                    return
-                }
-                
-                guard let data = snapshot?.data() else { return }
-                
-                self.name = data["name"] as! String
-                self.nickName = data["nickName"] as! String
-                self.introText = data["introText"] as! String
+        
+        service.fetchCurrentUser(uid: uid) { user in
+            self.name = user.name
+            self.nickName = user.nickName
+            self.introText = user.introText
         }
     }
 }

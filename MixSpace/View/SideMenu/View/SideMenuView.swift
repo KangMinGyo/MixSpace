@@ -11,7 +11,7 @@ import Firebase
 struct SideMenuView: View {
     
     @AppStorage("logStatus") var logStatus = true
-    @EnvironmentObject private var vm: SideMenuViewModel
+    @ObservedObject var vm = SideMenuViewModel()
     
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
@@ -22,10 +22,10 @@ struct SideMenuView: View {
                     .frame(width: 48, height: 48)
                     .clipShape(Circle())
                 
-                Text("이훈이")
+                Text(vm.name)
                     .font(.headline)
                     .foregroundColor(.primary)
-                Text("주먹밥러버")
+                Text("@\(vm.nickName)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 
@@ -63,9 +63,8 @@ struct SideMenuView: View {
     }
 }
 
-struct SideMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        SideMenuView()
-            .environmentObject(SideMenuViewModel())
-    }
-}
+//struct SideMenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SideMenuView()
+//    }
+//}
