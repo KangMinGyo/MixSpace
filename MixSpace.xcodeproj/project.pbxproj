@@ -44,7 +44,6 @@
 		8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */; };
 		8C886FBF29D9A29F008117AC /* ImageCroppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */; };
 		8C886FC229D9A5F7008117AC /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = 8C886FC129D9A5F7008117AC /* Mantis */; };
-		8C886FC629D9D04F008117AC /* ImageCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FC529D9D04F008117AC /* ImageCropView.swift */; };
 		8C886FC829DAEB08008117AC /* ViewFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FC729DAEB08008117AC /* ViewFinderView.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
@@ -88,7 +87,6 @@
 		8C886FB929D6FAC9008117AC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroppingView.swift; sourceTree = "<group>"; };
-		8C886FC529D9D04F008117AC /* ImageCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropView.swift; sourceTree = "<group>"; };
 		8C886FC729DAEB08008117AC /* ViewFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderView.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
@@ -349,7 +347,6 @@
 		8C886FBD29D9A27B008117AC /* ImageCropping */ = {
 			isa = PBXGroup;
 			children = (
-				8C886FC529D9D04F008117AC /* ImageCropView.swift */,
 				8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */,
 			);
 			path = ImageCropping;
@@ -537,7 +534,6 @@
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */,
-				8C886FC629D9D04F008117AC /* ImageCropView.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
