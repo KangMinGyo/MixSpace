@@ -42,6 +42,10 @@
 		8C886FB329D5C4FC008117AC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8C886FB229D5C4FC008117AC /* SDWebImageSwiftUI */; };
 		8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FB929D6FAC9008117AC /* SignUpView.swift */; };
 		8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */; };
+		8C886FBF29D9A29F008117AC /* ImageCroppingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */; };
+		8C886FC229D9A5F7008117AC /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = 8C886FC129D9A5F7008117AC /* Mantis */; };
+		8C886FC629D9D04F008117AC /* ImageCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FC529D9D04F008117AC /* ImageCropView.swift */; };
+		8C886FC829DAEB08008117AC /* ViewFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FC729DAEB08008117AC /* ViewFinderView.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -83,6 +87,9 @@
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		8C886FB929D6FAC9008117AC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		8C886FBB29D71B6C008117AC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCroppingView.swift; sourceTree = "<group>"; };
+		8C886FC529D9D04F008117AC /* ImageCropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropView.swift; sourceTree = "<group>"; };
+		8C886FC729DAEB08008117AC /* ViewFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFinderView.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 			files = (
 				8C886FB329D5C4FC008117AC /* SDWebImageSwiftUI in Frameworks */,
 				8C024DD129C97C67005788BF /* FirebaseFirestoreSwift in Frameworks */,
+				8C886FC229D9A5F7008117AC /* Mantis in Frameworks */,
 				8CBB344829BF3DE300B98E4A /* GoogleSignIn in Frameworks */,
 				8C024DCF29C97C67005788BF /* FirebaseFirestore in Frameworks */,
 				8C024DCD29C97C67005788BF /* FirebaseAuth in Frameworks */,
@@ -264,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				8C024DBF29C81F5D005788BF /* ImagePicker.swift */,
+				8C886FC729DAEB08008117AC /* ViewFinderView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -337,6 +346,15 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		8C886FBD29D9A27B008117AC /* ImageCropping */ = {
+			isa = PBXGroup;
+			children = (
+				8C886FC529D9D04F008117AC /* ImageCropView.swift */,
+				8C886FBE29D9A29F008117AC /* ImageCroppingView.swift */,
+			);
+			path = ImageCropping;
+			sourceTree = "<group>";
+		};
 		8CBB340A29BEF93F00B98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +411,7 @@
 				8C024D9129C300BB005788BF /* Profile */,
 				8C024DD429C998CF005788BF /* ProfileEdit */,
 				8C024DA229C43B24005788BF /* SideMenu */,
+				8C886FBD29D9A27B008117AC /* ImageCropping */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,6 +440,7 @@
 				8C024DD029C97C67005788BF /* FirebaseFirestoreSwift */,
 				8C024DD229C97C67005788BF /* FirebaseStorage */,
 				8C886FB229D5C4FC008117AC /* SDWebImageSwiftUI */,
+				8C886FC129D9A5F7008117AC /* Mantis */,
 			);
 			productName = MixSpace;
 			productReference = 8CBB341329BEF93F00B98E4A /* MixSpace.app */;
@@ -454,6 +474,7 @@
 				8CBB344629BF3DE300B98E4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 				8C024DCB29C97C67005788BF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				8C886FB129D5C4FC008117AC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				8C886FC029D9A5F7008117AC /* XCRemoteSwiftPackageReference "Mantis" */,
 			);
 			productRefGroup = 8CBB341429BEF93F00B98E4A /* Products */;
 			projectDirPath = "";
@@ -482,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C886FBF29D9A29F008117AC /* ImageCroppingView.swift in Sources */,
 				8C024DB229C5AD14005788BF /* SideMenuOptionView.swift in Sources */,
 				8C024D9A29C42936005788BF /* SearchView.swift in Sources */,
 				8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */,
@@ -498,6 +520,7 @@
 				8C886FB029D5AA4C008117AC /* UserService.swift in Sources */,
 				8C024DAA29C47A34005788BF /* UserStatsView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,
+				8C886FC829DAEB08008117AC /* ViewFinderView.swift in Sources */,
 				8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
 				8C024DB929C6E773005788BF /* TextArea.swift in Sources */,
@@ -514,6 +537,7 @@
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */,
+				8C886FC629D9D04F008117AC /* ImageCropView.swift in Sources */,
 				8C024DAE29C48C06005788BF /* HomeContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +761,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		8C886FC029D9A5F7008117AC /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		8CBB344629BF3DE300B98E4A /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -772,6 +804,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C886FB129D5C4FC008117AC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		8C886FC129D9A5F7008117AC /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C886FC029D9A5F7008117AC /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
 		};
 		8CBB344729BF3DE300B98E4A /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;

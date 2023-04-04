@@ -15,19 +15,22 @@ struct WritingView: View {
     
     @State private var privatePost = false
     @State private var privateComment = false
+//    @State private var cropperShown = false
+    
     //Image 관련
-    @State private var imagePickerPresented = false
-    @State private var selectedImage: UIImage?
-    @State private var profileImage: Image?
+//    @State private var imagePickerPresented = false
+//    @State private var selectedImage: UIImage?
+//    @State private var profileImage: Image?
+//    @State private var croppedImage: UIImage?
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack(alignment: .top) {
                     Button {
-                        imagePickerPresented.toggle()
+                        vm.imagePickerPresented.toggle()
                     } label: {
-                        let image = profileImage == nil ? Image(systemName: "photo.circle") : profileImage ?? Image(systemName: "photo.circle")
+                        let image = vm.profileImage == nil ? Image(systemName: "photo.circle") : vm.profileImage ?? Image(systemName: "photo.circle")
                             image
                                 .resizable()
                                 .foregroundColor(.gray)
@@ -35,10 +38,30 @@ struct WritingView: View {
                                 .frame(width: 48, height: 48)
                                 .clipShape(Rectangle())
                     }
-                    .sheet(isPresented: $imagePickerPresented,
-                           onDismiss: loadImage,
-                           content: { ImagePicker(image: $vm.selectedImage) })
-                    
+                    .sheet(isPresented: $vm.imagePickerPresented) {
+                        NavigationView {
+                            VStack {
+                                ImagePicker(image: $vm.selectedImage)
+                            }
+                            .toolbar {
+                                ToolbarItem(placement: .navigationBarTrailing) {
+                                    Button {
+                                        vm.cropperShown.toggle()
+                                    } label: {
+                                        Text("추가")
+                                            .foregroundColor(.primary)
+                                    }
+                                    .sheet(isPresented: $vm.cropperShown, onDismiss: vm.loadImage){
+                                        ImageCroppingView(shown: $vm.cropperShown,
+                                                          shownPicker: $vm.imagePickerPresented,
+                                                          image: vm.selectedImage!,
+                                                          croppedImage: $vm.croppedImage)
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     TextArea(placeholder: "추억을 남겨보세요...", text: $vm.text)
                         .onTapGesture {
                             self.hideKeyboard()
@@ -100,9 +123,35 @@ struct WritingView_Previews: PreviewProvider {
 
 extension WritingView {
     
-    func loadImage() {
-        guard let selectedImage = vm.selectedImage else { return }
-        profileImage = Image(uiImage: selectedImage)
-    }
+//    func loadImage() {
+//        guard let selectedImage = vm.croppedImage else { return }
+//        vm.profileImage = Image(uiImage: selectedImage)
+//    }
+    
+    
+//    func loadImage() {
+//        guard let selectedImage = vm.selectedImage else { return }
+//        profileImage = Image(uiImage: selectedImage)
+//    }
 }
 
+
+//    .sheet(isPresented: $imagePickerPresented,
+//           onDismiss: loadImage,
+//           content: { ImagePicker(image: $vm.selectedImage)
+//            .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button {
+//                        cropperShown.toggle()
+//                    } label: {
+//                        Text("추가")
+//                            .foregroundColor(.primary)
+//                    }
+//                    .sheet(isPresented: $cropperShown){
+//                        ImageCroppingView(shown: $cropperShown,
+//                                          image: vm.selectedImage!,
+//                                          croppedImage: $vm.croppedImage)
+//                    }
+//                }
+//            }
+//    })
