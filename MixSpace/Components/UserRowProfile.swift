@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct UserRowProfile: View {
+    
+    let user: User
+    
     var body: some View {
         HStack(spacing: 12) {
             Image("Profile2")
@@ -16,10 +19,10 @@ struct UserRowProfile: View {
                 .frame(width: 48, height: 48)
                 .clipShape(Circle())
             VStack(alignment: .leading, spacing: 4) {
-                Text("신짱구")
+                Text("\(user.name)")
                     .font(.headline)
                     .foregroundColor(.primary)
-                Text("초코비러버")
+                Text("@\(user.nickName)")
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
@@ -30,8 +33,8 @@ struct UserRowProfile: View {
     }
 }
 
-struct User_Previews: PreviewProvider {
-    static var previews: some View {
-        UserRowProfile()
-    }
-}
+//struct User_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserRowProfile()
+//    }
+//}
