@@ -15,6 +15,8 @@ class ProfileEditViewModel: ObservableObject {
     @Published var name = ""
     @Published var nickName = ""
     @Published var introText = ""
+    @Published var image = ""
+    
     @Published var profileImage: Image?
     @Published var selectedImage: UIImage?
     @Published var croppedImage: UIImage?
@@ -41,6 +43,7 @@ class ProfileEditViewModel: ObservableObject {
             self.name = user.name
             self.nickName = user.nickName
             self.introText = user.introText
+            self.image = user.profileImageURL
         }
     }
     

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 
 struct SideMenuView: View {
     
@@ -16,7 +17,7 @@ struct SideMenuView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             VStack(alignment: .leading) {
-                Image("Profile")
+                WebImage(url: URL(string: vm.profileImage))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 48, height: 48)

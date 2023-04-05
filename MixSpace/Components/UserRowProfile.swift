@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct UserRowProfile: View {
     
@@ -13,7 +14,7 @@ struct UserRowProfile: View {
     
     var body: some View {
         HStack(spacing: 12) {
-            Image("Profile2")
+            WebImage(url: URL(string: user.profileImageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(width: 48, height: 48)

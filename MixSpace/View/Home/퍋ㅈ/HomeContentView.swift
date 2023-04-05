@@ -42,7 +42,7 @@ struct HomeContentView: View {
                         }
                         
                     } label: {
-                        Image("Profile")
+                        Image(systemName: "person.circle.fill")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 32, height: 32)

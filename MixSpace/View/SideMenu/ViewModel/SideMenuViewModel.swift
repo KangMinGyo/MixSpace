@@ -14,6 +14,7 @@ class SideMenuViewModel: ObservableObject {
     
     @Published var name = ""
     @Published var nickName = ""
+    @Published var profileImage = ""
     
     init() {
         fetchCurrentUser()
@@ -31,6 +32,7 @@ class SideMenuViewModel: ObservableObject {
         service.fetchCurrentUser(uid: uid) { user in
             self.name = user.name
             self.nickName = user.nickName
+            self.profileImage = user.profileImageURL
         }
     }
 }

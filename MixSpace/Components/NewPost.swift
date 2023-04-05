@@ -16,7 +16,7 @@ struct NewPost: View {
             
             if let user = post.user {
                 HStack {
-                    Image("Profile")
+                    WebImage(url: URL(string: user.profileImageURL))
                         .resizable()
                         .scaledToFill()
                         .frame(width: 36, height: 36)
