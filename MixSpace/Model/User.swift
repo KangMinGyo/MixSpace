@@ -17,6 +17,7 @@ struct User: Codable, Identifiable, Hashable {
     let name: String
     let nickName: String
     let introText: String
+    let profileImageURL: String
     let postNum: Int
     let follower: Int
     let following: Int

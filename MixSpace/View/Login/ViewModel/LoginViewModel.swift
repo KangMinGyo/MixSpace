@@ -61,7 +61,15 @@ class LoginViewModel: ObservableObject {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let name = uid.prefix(5)
         let nickname = uid.suffix(5)
-        let userData = ["email": email, "uid": uid, "name": name, "nickName": nickname, "introText": "", "postNum": 0, "follower": 0, "following": 0] as [String : Any]
+        let userData = ["email": email,
+                        "uid": uid,
+                        "name": name,
+                        "nickName": nickname,
+                        "introText": "",
+                        "profileImageURL": "",
+                        "postNum": 0,
+                        "follower": 0,
+                        "following": 0] as [String : Any]
         FirebaseManager.shared.fireStore.collection("users")
             .document(uid).setData(userData) { err in
                 if let err = err {

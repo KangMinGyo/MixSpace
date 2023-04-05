@@ -15,8 +15,10 @@ struct SignUpView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                VStack(spacing: 0) {
                     emailView
+                    
+                    nameView
                     
                     Button {
                         vm.handleAction()
@@ -71,7 +73,35 @@ extension SignUpView {
                 }
             Divider()
                 .frame(height: 1)
-            
         }.padding()
     }
+    
+    private var nameView: some View {
+        VStack(alignment: .leading) {
+            Text("이름")
+                .font(.headline)
+                .foregroundColor(.primary)
+            TextArea(placeholder: "홍길동", text: $vm.name)
+                .onTapGesture {
+                    self.hideKeyboard()
+                }
+            Divider()
+                .frame(height: 1)
+            
+            Text("닉네임")
+                .font(.headline)
+                .foregroundColor(.primary)
+            TextArea(placeholder: "space_hong", text: $vm.nickName)
+                .onTapGesture {
+                    self.hideKeyboard()
+                }
+            Divider()
+                .frame(height: 1)
+        }
+        .padding(.horizontal)
+        .padding(.bottom, 20)
+    }
 }
+
+
+

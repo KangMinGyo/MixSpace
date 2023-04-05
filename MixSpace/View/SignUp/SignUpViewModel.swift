@@ -11,6 +11,8 @@ class SignUpViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""
+    @Published var name = ""
+    @Published var nickName = ""
     
     func handleAction() {
         creatNewAccount()
@@ -30,7 +32,16 @@ class SignUpViewModel: ObservableObject {
     
     private func storeUserInformation() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        let userData = ["email": email, "uid": uid, "name": "", "nickName": "", "introText": "", "postNum": 0, "follower": 0, "following": 0] as [String : Any]
+        let userData = ["email": email,
+                        "uid": uid,
+                        "name": name,
+                        "nickName": nickName,
+                        "introText": "",
+                        "profileImageURL": "",
+                        "postNum": 0,
+                        "follower": 0,
+                        "following": 0] as [String : Any]
+        
         FirebaseManager.shared.fireStore.collection("users")
             .document(uid).setData(userData) { err in
                 if let err = err {
