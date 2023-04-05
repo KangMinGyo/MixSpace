@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct ProfileEditView: View {
 
@@ -23,23 +24,33 @@ struct ProfileEditView: View {
                     
                     Spacer()
                 }
+                .navigationTitle("프로필 편집")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            vm.editCurrentUser()
+                            dismiss()
+                            
+                        } label: {
+                            Text("완료")
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            dismiss()
+                            
+                        } label: {
+                            Text("취소")
+                                .foregroundColor(.primary)
+                        }
+                    }
+                }
+
             }
         }
         .ignoresSafeArea()
-        .navigationTitle("프로필 편집")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    vm.editCurrentUser()
-                    dismiss()
-                    
-                } label: {
-                    Text("완료")
-                        .foregroundColor(.primary)
-                }
-            }
-        }
     }
 }
 
@@ -67,19 +78,39 @@ extension ProfileEditView {
             VStack(alignment: .leading) {
                 HStack {
                     ZStack {
-                        Image("Profile")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 72, height: 72)
-                            .clipShape(Circle())
-                        
                         Button {
-                            //프로필 사진 변경
+                            vm.imagePickerPresented.toggle()
                         } label: {
-                            Circle()
-                                .frame(width: 72, height: 72)
-                                .foregroundColor(.clear)
-                                
+                            let image = vm.profileImage == nil ? Image(systemName: "photo.circle") : vm.profileImage ?? Image(systemName: "photo.circle")
+                                image
+                                    .resizable()
+                                    .foregroundColor(.gray)
+                                    .scaledToFill()
+                                    .frame(width: 72, height: 72)
+                                    .clipShape(Circle())
+                        }
+                        .sheet(isPresented: $vm.imagePickerPresented) {
+                            NavigationView {
+                                VStack {
+                                    ImagePicker(image: $vm.selectedImage)
+                                }
+                                .toolbar {
+                                    ToolbarItem(placement: .navigationBarTrailing) {
+                                        Button {
+                                            vm.cropperShown.toggle()
+                                        } label: {
+                                            Text("추가")
+                                                .foregroundColor(.primary)
+                                        }
+                                        .sheet(isPresented: $vm.cropperShown, onDismiss: vm.loadImage){
+                                            ImageCroppingView(shown: $vm.cropperShown,
+                                                              shownPicker: $vm.imagePickerPresented,
+                                                              image: vm.selectedImage!,
+                                                              croppedImage: $vm.croppedImage)
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -116,3 +147,4 @@ extension ProfileEditView {
         .padding()
     }
 }
+

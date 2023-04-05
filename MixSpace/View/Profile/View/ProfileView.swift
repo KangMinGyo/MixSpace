@@ -7,17 +7,14 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 
 struct ProfileView: View {
     
     @StateObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
+    @State var showProfileEditView = false
     @State private var selectionFilter: ProfileFilterViewModel = .space
-    let columns = [GridItem(.flexible()),
-                   GridItem(.flexible()),
-                   GridItem(.flexible())]
-    
-    let imageDimension = UIScreen.main.bounds.width / 3
     
     var body: some View {
         
@@ -50,7 +47,7 @@ extension ProfileView {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Image("Profile")
+                    WebImage(url: URL(string: vm.user?.profileImageURL ?? ""))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 72, height: 72)
@@ -106,8 +103,8 @@ extension ProfileView {
             
             Spacer()
             
-            NavigationLink {
-                ProfileEditView()
+            Button {
+                showProfileEditView.toggle()
             } label: {
                 Text("프로필 편집")
                     .font(.subheadline)
@@ -116,6 +113,9 @@ extension ProfileView {
                     .foregroundColor(.white)
                     .background(Color("SpaceYellow"))
                     .cornerRadius(30)
+            }
+            .fullScreenCover(isPresented: $showProfileEditView) {
+                ProfileEditView()
             }
         }
         .padding(.horizontal)
