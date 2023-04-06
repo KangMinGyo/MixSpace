@@ -48,7 +48,11 @@ class ProfileEditViewModel: ObservableObject {
     }
     
     func loadImage() {
-            guard let selectedImage = croppedImage else { return }
-            profileImage = Image(uiImage: selectedImage)
-        }
+        guard let selectedImage = croppedImage else { return }
+        profileImage = Image(uiImage: selectedImage)
+    }
+    
+    func shown() {
+        cropperShown = true
+    }
 }

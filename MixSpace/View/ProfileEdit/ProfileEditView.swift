@@ -88,29 +88,17 @@ extension ProfileEditView {
                                     .frame(width: 72, height: 72)
                                     .clipShape(Circle())
                         }
-                        .sheet(isPresented: $vm.imagePickerPresented) {
-                            NavigationView {
-                                VStack {
-                                    ImagePicker(image: $vm.selectedImage)
-                                }
-                                .toolbar {
-                                    ToolbarItem(placement: .navigationBarTrailing) {
-                                        Button {
-                                            vm.cropperShown.toggle()
-                                        } label: {
-                                            Text("추가")
-                                                .foregroundColor(.primary)
-                                        }
-                                        .sheet(isPresented: $vm.cropperShown, onDismiss: vm.loadImage){
-                                            ImageCroppingView(shown: $vm.cropperShown,
-                                                              shownPicker: $vm.imagePickerPresented,
-                                                              image: vm.selectedImage!,
-                                                              croppedImage: $vm.croppedImage)
-                                        }
-                                    }
-                                }
-                            }
+                        
+                        .sheet(isPresented: $vm.imagePickerPresented, onDismiss: vm.shown) {
+                            ImagePicker(image: $vm.selectedImage)
                         }
+                        .fullScreenCover(isPresented: $vm.cropperShown, onDismiss: vm.loadImage) {
+                            ImageCroppingView(shown: $vm.cropperShown,
+                                              shownPicker: $vm.imagePickerPresented,
+                                              image: vm.selectedImage!,
+                                              croppedImage: $vm.croppedImage)
+                        }
+                        
                     }
                 }
                 .padding(.horizontal)
