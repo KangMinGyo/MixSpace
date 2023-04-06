@@ -50,6 +50,7 @@ class ProfileEditViewModel: ObservableObject {
     func loadImage() {
         guard let selectedImage = croppedImage else { return }
         profileImage = Image(uiImage: selectedImage)
+        fetchCurrentUser()
     }
     
     func shown() {

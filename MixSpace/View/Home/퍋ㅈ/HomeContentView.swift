@@ -46,6 +46,7 @@ struct HomeContentView: View {
                             .resizable()
                             .scaledToFill()
                             .frame(width: 32, height: 32)
+                            .foregroundColor(Color.gray)
                             .clipShape(Circle())
                     }
                 }

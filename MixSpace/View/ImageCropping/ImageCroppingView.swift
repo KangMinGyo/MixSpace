@@ -26,8 +26,8 @@ struct ImageCroppingView: View {
     
     var body: some View {
         ZStack{
-            //Black background
-            Color.black
+            //Background Color
+            Color.white
                 .edgesIgnoringSafeArea(.vertical)
             VStack{
                 Spacer()
@@ -64,7 +64,7 @@ struct ImageCroppingView: View {
                         
                     }){
                         Text("완료")
-                            .foregroundColor(.white)
+                            .foregroundColor(.primary)
                             .fontWeight(.semibold)
                     }
                     
