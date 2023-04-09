@@ -22,10 +22,6 @@ struct ProfileView: View {
             HeaderView
             
             infoView
-
-            //            filterBar
-            
-            //            gridView
             
             Spacer()
         }
