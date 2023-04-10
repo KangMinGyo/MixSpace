@@ -33,5 +33,8 @@ class WritingViewModel: ObservableObject {
         profileImage = Image(uiImage: selectedImage)
         print("Image : \(String(describing: croppedImage))")
     }
-
+    
+    func shown() {
+        cropperShown = true
+    }
 }

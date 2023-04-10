@@ -88,7 +88,6 @@ extension ProfileEditView {
                                     .frame(width: 72, height: 72)
                                     .clipShape(Circle())
                         }
-                        
                         .sheet(isPresented: $vm.imagePickerPresented, onDismiss: vm.shown) {
                             ImagePicker(image: $vm.selectedImage)
                         }
