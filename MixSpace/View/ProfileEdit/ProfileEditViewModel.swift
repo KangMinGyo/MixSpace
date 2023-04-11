@@ -31,10 +31,18 @@ class ProfileEditViewModel: ObservableObject {
     }
     
     func editCurrentUser() {
+        //프로필 사진도 변경했을 떄
         if let imageData = self.croppedImage?.jpegData(compressionQuality: 0.5) {
             service.persistImageToStorage(name: name, nickName: nickName, introText: introText, selectedImage: imageData)
         } else {
-            service.editCurrentUser(name: name, nickName: nickName, introText: introText, imageURL: profileImageURL!)
+            //프로필 사진은 변경 안했는데 이미 프로필 사진 있을 때
+            if profileImageURL != nil {
+                service.editCurrentUser(name: name, nickName: nickName, introText: introText, imageURL: profileImageURL!)
+                //프로필 사진은 변경 안했는데 프로필 사진도 없을 때
+            } else {
+                service.editCurrentUserNoProfile(name: name, nickName: nickName, introText: introText)
+            }
+            
         }
         
 
