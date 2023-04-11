@@ -10,7 +10,7 @@ import Foundation
 struct UserService {
     
     func persistImageToStorage(name: String, nickName: String, introText: String, selectedImage: Data) {
-        
+
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let ref = FirebaseManager.shared.storage.reference(withPath: uid)
         ref.putData(selectedImage, metadata: nil) { metadata, err in
@@ -18,7 +18,7 @@ struct UserService {
                 print("Failed to push image to Storage: \(err)")
                 return
             }
-            
+
             ref.downloadURL { url, err in
                 if let err = err {
                     print("Failed to retrieve downloadURL: \(err)")
@@ -30,11 +30,11 @@ struct UserService {
         }
     }
     
-    private func editCurrentUser(name: String, nickName: String, introText: String, imageURL: URL) {
+    func editCurrentUser(name: String, nickName: String, introText: String, imageURL: URL) {
 
         guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        
+
         let userData = ["email": email,
                         "uid": uid,
                         "name": name,
@@ -44,7 +44,7 @@ struct UserService {
                         "postNum": 0,
                         "follower": 0,
                         "following": 0] as [String : Any]
-        
+
         FirebaseManager.shared.fireStore.collection("users") //users라는 컬렉션을 만든다
             .document(uid).setData(userData) { err in
                 if let err = err {
@@ -68,6 +68,7 @@ struct UserService {
                 }
                 
                 guard let user = try? snapshot?.data(as: User.self) else { return }
+
                 completion(user)
         }
     }

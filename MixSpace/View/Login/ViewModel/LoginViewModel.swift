@@ -14,9 +14,11 @@ import AuthenticationServices
 
 
 class LoginViewModel: ObservableObject {
-    
-    @Published var nonce = ""
     @AppStorage("logStatus") var logStatus = false
+    @AppStorage("firstLogin") var firstLogin = false
+    
+    //Apple Login
+    @Published var nonce = ""
     
     //Email Login
     @Published var email = ""
@@ -41,22 +43,27 @@ class LoginViewModel: ObservableObject {
         }
         
         let firebaseCredential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokenString, rawNonce: nonce)
-        Auth.auth().signIn(with: firebaseCredential) { result, err in
+        
+        FirebaseManager.shared.auth.signIn(with: firebaseCredential) { result, err in
             if let err = err {
                 print(err.localizedDescription)
             }
             
-            self.storeUserInformation()
+            if self.firstLogin == false {
+                self.storeUserInformation()
+            }
+    
             print("로그인: \(result?.user.uid ?? "")")
             print("Loggen In Success: \(result?.user.email ?? "")")
             
             withAnimation(.easeInOut) {
                 self.logStatus = true
+                self.firstLogin = true
             }
         }
     }
     
-    private func storeUserInformation() {
+    func storeUserInformation() {
         guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let name = uid.prefix(5)
@@ -138,6 +145,5 @@ func randomNonceString(length: Int = 32) -> String {
             }
         }
     }
-    
     return result
 }

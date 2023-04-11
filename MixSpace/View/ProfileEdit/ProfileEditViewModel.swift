@@ -16,6 +16,7 @@ class ProfileEditViewModel: ObservableObject {
     @Published var nickName = ""
     @Published var introText = ""
     @Published var image = ""
+    @Published var profileImageURL: URL?
     
     @Published var profileImage: Image?
     @Published var selectedImage: UIImage?
@@ -30,10 +31,13 @@ class ProfileEditViewModel: ObservableObject {
     }
     
     func editCurrentUser() {
-
-        guard let imageData = self.croppedImage?.jpegData(compressionQuality: 0.5) else { return }
+        if let imageData = self.croppedImage?.jpegData(compressionQuality: 0.5) {
+            service.persistImageToStorage(name: name, nickName: nickName, introText: introText, selectedImage: imageData)
+        } else {
+            service.editCurrentUser(name: name, nickName: nickName, introText: introText, imageURL: profileImageURL!)
+        }
         
-        service.persistImageToStorage(name: name, nickName: nickName, introText: introText, selectedImage: imageData)
+
     }
     
     func fetchCurrentUser() {
@@ -44,6 +48,7 @@ class ProfileEditViewModel: ObservableObject {
             self.nickName = user.nickName
             self.introText = user.introText
             self.image = user.profileImageURL
+            self.profileImageURL = URL(string: user.profileImageURL)
         }
     }
     

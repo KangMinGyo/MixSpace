@@ -139,19 +139,3 @@ extension LoginView {
         }
     }
 }
-
-//VStack(spacing: 18) {
-//    Text("당신만의 우주를 만들어보세요.")
-//        .font(.system(size: 24))
-//        .foregroundColor(Color("SpaceWhite"))
-//
-//    VStack(spacing: 4) {
-//        Text("세상에 단 하나뿐인 나만의 우주")
-//            .font(.system(size: 18))
-//            .foregroundColor(Color("SpaceWhite"))
-//        Text("누구나 함께할 수 있는 우리들의 우주")
-//            .font(.system(size: 18))
-//            .foregroundColor(Color("SpaceWhite"))
-//    }
-//}
-//.frame(height: 300)
