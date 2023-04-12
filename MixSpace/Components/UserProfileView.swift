@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import SDWebImageSwiftUI
 
 struct UserProfileView: View {
     
@@ -40,7 +41,7 @@ extension UserProfileView {
             
             VStack(alignment: .leading) {
                 HStack {
-                    Image("Profile")
+                    WebImage(url: URL(string: user.profileImageURL))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 72, height: 72)
