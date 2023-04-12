@@ -10,10 +10,13 @@ import SwiftUI
 struct SearchView: View {
     
     @ObservedObject var vm = SearchViewModel()
+    @State private var searchText = ""
     
     var body: some View {
         NavigationView {
             VStack {
+                SearchBar(text: $searchText)
+                    .padding(.horizontal, 4)
                 ScrollView {
                     LazyVStack {
                         ForEach(vm.users, id: \.self) { user in

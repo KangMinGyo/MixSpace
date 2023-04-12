@@ -100,15 +100,11 @@ struct UserService {
     
     //MARK: SEARCH (USERS)
     func fetchUsers(completion: @escaping([User]) -> Void) {
-        var users = [User]()
         FirebaseManager.shared.fireStore.collection("users")
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
-                
-                documents.forEach { document in
-                    guard let user = try? document.data(as: User.self) else { return }
-                    users.append(user)
-                }
+                let users = documents.compactMap({ try? $0.data(as: User.self) })
+
                 completion(users)
             }
     }
