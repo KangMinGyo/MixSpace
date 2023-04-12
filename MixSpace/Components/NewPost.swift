@@ -25,7 +25,7 @@ struct NewPost: View {
                         Text("@\(user.nickName)")
                             .font(.system(size: 15))
                             .bold()
-                        Text("2023.03.15")
+                        Text("\(post.time)")
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -83,7 +83,7 @@ struct NewPost: View {
         }
     }
 }
-
+//
 //struct NewPost_Previews: PreviewProvider {
 //    static var previews: some View {
 //        NewPost()
