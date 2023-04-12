@@ -16,6 +16,7 @@ struct SearchView: View {
             VStack {
                 SearchBar(text: $vm.searchText)
                     .padding(.horizontal, 4)
+
                 ScrollView {
                     LazyVStack {
                         ForEach(vm.searchableUsers, id: \.self) { user in
@@ -27,6 +28,9 @@ struct SearchView: View {
 
                         }
                     }
+                }
+                .onTapGesture {
+                    self.hideKeyboard()
                 }
             }
             .navigationTitle("검색")
