@@ -38,8 +38,8 @@ struct SignUpView: View {
                     }
 
                 }
+                .navigationTitle("회원가입")
             }
-            .navigationTitle("회원가입")
         }
     }
 }

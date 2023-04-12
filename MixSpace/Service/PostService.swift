@@ -53,8 +53,10 @@ struct PostService {
     }
     
     func fetchPost(completion: @escaping([Post]) -> Void) {
-        print("fetchPost")
-        FirebaseManager.shared.fireStore.collection("posts").getDocuments { snapshot, err in
+        FirebaseManager.shared.fireStore
+            .collection("posts")
+            .order(by: "timeStamp", descending: true)
+            .getDocuments { snapshot, err in
             guard let documents = snapshot?.documents else { return }
             
             let posts = documents.compactMap({ try? $0.data(as: Post.self) })

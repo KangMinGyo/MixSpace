@@ -42,10 +42,7 @@ class ProfileEditViewModel: ObservableObject {
             } else {
                 service.editCurrentUserNoProfile(name: name, nickName: nickName, introText: introText)
             }
-            
         }
-        
-
     }
     
     func fetchCurrentUser() {

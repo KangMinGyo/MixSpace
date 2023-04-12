@@ -132,7 +132,7 @@ extension LoginView {
                 .clipShape(Capsule())
                 .padding(.horizontal, 30)
             }
-            .fullScreenCover(isPresented: $showSignUpView) {
+            .sheet(isPresented: $showSignUpView) {
                 SignUpView()
             }
 
