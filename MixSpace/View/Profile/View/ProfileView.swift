@@ -19,13 +19,16 @@ struct ProfileView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            HeaderView
-            
-            infoView
-            
-            userPostsView
-            
-            Spacer()
+            ScrollView {
+                HeaderView
+
+                Text("내 게시글")
+                
+                userPostsView
+                
+                Spacer()
+            }
+
         }
         
         .ignoresSafeArea()
@@ -40,92 +43,91 @@ struct MyView_Previews: PreviewProvider {
 
 extension ProfileView {
     private var HeaderView: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack(alignment: .center) {
             Color("SpaceWhite")
             
-            VStack(alignment: .leading) {
-                HStack {
+            VStack(spacing: 60) {
+                VStack {
                     WebImage(url: URL(string: vm.user?.profileImageURL ?? ""))
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 72, height: 72)
+                        .frame(width: 96, height: 96)
                         .clipShape(Circle())
                     
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(vm.user?.name ?? "")
-                            .font(.headline)
+                    VStack(alignment: .center, spacing: 4) {
+                        Text(vm.user?.name ?? "이훈이")
+                            .font(.title3)
                             .foregroundColor(.gray)
-                        Text("@\(Text(vm.user?.nickName ?? ""))")
+                        Text("@\(Text(vm.user?.nickName ?? "주먹밥러버"))")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        Text(vm.user?.introText ?? "")
+                        Text(vm.user?.introText ?? "주먹밥 먹을래?")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
                     }
                     .onAppear(perform: vm.fetchCurrentUser)
                     
-                    Spacer()
+                    Button {
+                        showProfileEditView.toggle()
+                    } label: {
+                        Text("프로필 편집")
+                            .font(.subheadline)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .foregroundColor(.white)
+                            .background(Color("SpaceYellow"))
+                            .cornerRadius(30)
+                    }
+                    .fullScreenCover(isPresented: $showProfileEditView) {
+                        ProfileEditView()
+                    }
                 }
-                .padding(.horizontal)
-            }
-            .padding(.bottom, 20)
-        }
-        .frame(height: 300)
-    }
-    
-    private var infoView: some View {
-        HStack() {
-            HStack(spacing: 30) {
-                VStack {
-                    Text("21")
-                    Text("게시글")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
+                .padding(.top, 100)
                 
-                VStack {
-                    Text("7")
-                    Text("팔로워")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
+                HStack(spacing: 40) {
+                    HStack(spacing: 25) {
+                        VStack {
+                            Text("\(vm.posts.count)")
+                            Text("게시글")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                        
+                        Rectangle()
+                            .frame(width: 1, height: 30)
+                            .foregroundColor(.gray)
+                        
+                        VStack {
+                            Text("7")
+                            Text("팔로워")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                        
+                        Rectangle()
+                            .frame(width: 1, height: 30)
+                            .foregroundColor(.gray)
+                        
+                        VStack {
+                            Text("10")
+                            Text("팔로잉")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                    }
                 }
-                
-                VStack {
-                    Text("10")
-                    Text("팔로잉")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
-            }
-            
-            Spacer()
-            
-            Button {
-                showProfileEditView.toggle()
-            } label: {
-                Text("프로필 편집")
-                    .font(.subheadline)
-                    .padding(.vertical, 10)
-                    .padding(.horizontal, 20)
-                    .foregroundColor(.white)
-                    .background(Color("SpaceYellow"))
-                    .cornerRadius(30)
-            }
-            .fullScreenCover(isPresented: $showProfileEditView) {
-                ProfileEditView()
+                .padding(.top, 20)
             }
         }
-        .padding(.horizontal)
+        .frame(height: 600)
     }
     
     private var userPostsView: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(vm.posts, id: \.self) { post in
-                    NewPost(post: post)
-                }
+        LazyVStack {
+            ForEach(vm.posts) { post in
+                NewPost(post: post)
             }
         }
+        .padding(.bottom, 60)
     }
 }

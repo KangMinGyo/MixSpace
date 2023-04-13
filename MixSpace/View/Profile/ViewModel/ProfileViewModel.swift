@@ -22,7 +22,6 @@ class ProfileViewModel: ObservableObject {
     
     func fetchCurrentUser() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-        
         service.fetchCurrentUser(uid: uid) { user in
             self.user = user
         }
@@ -32,7 +31,28 @@ class ProfileViewModel: ObservableObject {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         postService.fetchPosts(forUid: uid) { posts in
             self.posts = posts
+            
+            for i in 0 ..< posts.count {
+                let uid = posts[i].uid
+                
+                self.service.fetchCurrentUser(uid: uid) { user in
+                    self.posts[i].user = user
+                }
+            }
         }
     }
 }
 
+//func fetchPost() {
+//    service.fetchPost { posts in
+//        self.posts = posts
+//        
+//        for i in 0 ..< posts.count {
+//            let uid = posts[i].uid
+//
+//            self.userService.fetchCurrentUser(uid: uid) { user in
+//                self.posts[i].user = user
+//            }
+//        }
+//    }
+//}
