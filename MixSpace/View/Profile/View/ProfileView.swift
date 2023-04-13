@@ -11,7 +11,7 @@ import SDWebImageSwiftUI
 
 struct ProfileView: View {
     
-    @StateObject var vm = ProfileViewModel()
+    @ObservedObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
     @State var showProfileEditView = false
     @State private var selectionFilter: ProfileFilterViewModel = .space
@@ -22,6 +22,8 @@ struct ProfileView: View {
             HeaderView
             
             infoView
+            
+            userPostsView
             
             Spacer()
         }
@@ -115,5 +117,15 @@ extension ProfileView {
             }
         }
         .padding(.horizontal)
+    }
+    
+    private var userPostsView: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(vm.posts, id: \.self) { post in
+                    NewPost(post: post)
+                }
+            }
+        }
     }
 }

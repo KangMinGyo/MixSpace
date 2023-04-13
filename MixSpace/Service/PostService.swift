@@ -63,4 +63,16 @@ struct PostService {
             completion(posts)
         }
     }
+    
+    func fetchPosts(forUid uid: String, completion: @escaping([Post]) -> Void) {
+        FirebaseManager.shared.fireStore
+            .collection("posts")
+            .whereField("uid", isEqualTo: uid)
+            .getDocuments { snapshot, err in
+                guard let documents = snapshot?.documents else { return }
+                
+                let posts = documents.compactMap({ try? $0.data(as: Post.self) })
+                completion(posts.sorted(by: { $0.timeStamp > $1.timeStamp }))
+            }
+    }
 }

@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 
-struct Post: Codable, Identifiable {
+struct Post: Codable, Identifiable, Hashable {
     
     @DocumentID var id: String?
     let uid: String
