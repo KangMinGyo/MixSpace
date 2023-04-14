@@ -91,4 +91,18 @@ struct PostService {
                 }
             }
     }
+    
+    func checkIfUserLikedPost(_ post: Post, completion: @escaping(Bool) -> Void) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        FirebaseManager.shared.fireStore
+            .collection("users")
+            .document(uid)
+            .collection("user-likes")
+            .document(postId).getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
 }

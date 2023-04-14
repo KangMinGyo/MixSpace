@@ -13,11 +13,20 @@ class NewPostViewModel: ObservableObject {
     
     init(post: Post) {
         self.post = post
+        checkIfUserLikedPost()
     }
     
     func likePost() {
         service.likePost(post) {
             self.post.didLike = true
+        }
+    }
+    
+    func checkIfUserLikedPost() {
+        service.checkIfUserLikedPost(post) { didLike in
+            if didLike {
+                self.post.didLike = true
+            }
         }
     }
 }
