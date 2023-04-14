@@ -22,6 +22,12 @@ class NewPostViewModel: ObservableObject {
         }
     }
     
+    func unlikePost() {
+        service.unlikePost(post) {
+            self.post.didLike = false
+        }
+    }
+    
     func checkIfUserLikedPost() {
         service.checkIfUserLikedPost(post) { didLike in
             if didLike {

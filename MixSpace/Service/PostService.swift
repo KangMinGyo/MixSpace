@@ -92,6 +92,24 @@ struct PostService {
             }
     }
     
+    func unlikePost(_ post: Post, completion: @escaping() -> Void) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let postId = post.id else { return }
+        guard post.like > 0 else { return }
+        
+        let userLikesRef = FirebaseManager.shared.fireStore
+            .collection("users")
+            .document(uid)
+            .collection("user-likes")
+        
+        FirebaseManager.shared.fireStore.collection("posts").document(postId)
+            .updateData(["like": post.like - 1]) { _ in
+                userLikesRef.document(postId).delete { _ in
+                    completion()
+                }
+            }
+    }
+    
     func checkIfUserLikedPost(_ post: Post, completion: @escaping(Bool) -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         guard let postId = post.id else { return }
