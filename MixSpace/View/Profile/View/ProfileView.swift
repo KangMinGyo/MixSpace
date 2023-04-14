@@ -22,8 +22,6 @@ struct ProfileView: View {
             ScrollView {
                 HeaderView
 
-                Text("내 게시글")
-                
                 userPostsView
                 
                 Spacer()
@@ -123,11 +121,27 @@ extension ProfileView {
     }
     
     private var userPostsView: some View {
-        LazyVStack {
-            ForEach(vm.posts) { post in
-                NewPost(post: post)
+        LazyVStack(pinnedViews: [.sectionHeaders]) {
+            Section(header: header) {
+                ForEach(vm.posts) { post in
+                    NewPost(post: post)
+                }
             }
         }
         .padding(.bottom, 60)
+    }
+    
+    private var header: some View {
+        VStack {
+            Spacer()
+            Text("내 게시물")
+                .fontWeight(.bold)
+                .padding(.top, 20)
+            Text("\(vm.posts.count)개의 게시물")
+            Spacer()
+        }
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .frame(height: 100)
+        .background(Rectangle().foregroundColor(.white))
     }
 }

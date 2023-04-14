@@ -17,7 +17,7 @@ class ProfileViewModel: ObservableObject {
     
     init() {
         fetchCurrentUser()
-        fetchUserPosts()
+        fetchPosts()
     }
     
     func fetchCurrentUser() {
@@ -27,7 +27,7 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func fetchUserPosts() {
+    func fetchPosts() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         postService.fetchPosts(forUid: uid) { posts in
             self.posts = posts

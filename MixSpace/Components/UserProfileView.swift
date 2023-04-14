@@ -19,15 +19,12 @@ struct UserProfileView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            HeaderView
-            
-            infoView
+            ScrollView {
+                HeaderView
+                
+                Spacer()
+            }
 
-            //            filterBar
-            
-            //            gridView
-            
-            Spacer()
         }
         
         .ignoresSafeArea()
@@ -36,20 +33,20 @@ struct UserProfileView: View {
 
 extension UserProfileView {
     private var HeaderView: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack(alignment: .center) {
             Color("SpaceWhite")
             
-            VStack(alignment: .leading) {
-                HStack {
+            VStack(spacing: 60) {
+                VStack {
                     WebImage(url: URL(string: user.profileImageURL))
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 72, height: 72)
+                        .frame(width: 96, height: 96)
                         .clipShape(Circle())
                     
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .center, spacing: 4) {
                         Text(user.name)
-                            .font(.headline)
+                            .font(.title3)
                             .foregroundColor(.gray)
                         Text("@\(user.nickName)")
                             .font(.subheadline)
@@ -57,46 +54,55 @@ extension UserProfileView {
                         Text(user.introText)
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        
                     }
                     .onAppear(perform: vm.fetchCurrentUser)
-                    
-                    Spacer()
                 }
-                .padding(.horizontal)
+                .padding(.top, 100)
+                
+                HStack(spacing: 40) {
+                    HStack(spacing: 25) {
+                        VStack {
+                            Text("\(vm.posts.count)")
+                            Text("게시글")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                        
+                        Rectangle()
+                            .frame(width: 1, height: 30)
+                            .foregroundColor(.gray)
+                        
+                        VStack {
+                            Text("7")
+                            Text("팔로워")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                        
+                        Rectangle()
+                            .frame(width: 1, height: 30)
+                            .foregroundColor(.gray)
+                        
+                        VStack {
+                            Text("10")
+                            Text("팔로잉")
+                                .foregroundColor(.gray)
+                                .font(.headline)
+                        }
+                    }
+                }
+                .padding(.top, 20)
             }
-            .padding(.bottom, 20)
         }
-        .frame(height: 300)
+        .frame(height: 600)
     }
     
-    private var infoView: some View {
-        HStack() {
-            HStack(spacing: 30) {
-                VStack {
-                    Text("21")
-                    Text("게시글")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
-                
-                VStack {
-                    Text("7")
-                    Text("팔로워")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
-                
-                VStack {
-                    Text("10")
-                    Text("팔로잉")
-                        .foregroundColor(.gray)
-                        .font(.subheadline)
-                }
-            }
-            
-            Spacer()
-        }
-        .padding(.horizontal)
-    }
+//    private var userPostsView: some View {
+//        LazyVStack {
+//            ForEach(vm.userPosts) { post in
+//                NewPost(post: post)
+//            }
+//        }
+//        .padding(.bottom, 60)
+//    }
 }
