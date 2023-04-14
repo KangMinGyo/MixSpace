@@ -10,17 +10,22 @@ import Firebase
 import SDWebImageSwiftUI
 
 struct UserProfileView: View {
-    
-    @StateObject var vm = ProfileViewModel()
+
+    @ObservedObject var vm: UserProfileViewModel
     @AppStorage("logStatus") var logStatus = false
     @State private var selectionFilter: ProfileFilterViewModel = .space
-    let user: User
+    
+    init(user: User) {
+        self.vm = UserProfileViewModel(postUser: user)
+    }
     
     var body: some View {
         
         VStack(alignment: .leading) {
             ScrollView {
                 HeaderView
+                
+                userPostsView
                 
                 Spacer()
             }
@@ -38,20 +43,20 @@ extension UserProfileView {
             
             VStack(spacing: 60) {
                 VStack {
-                    WebImage(url: URL(string: user.profileImageURL))
+                    WebImage(url: URL(string: vm.postUser.profileImageURL))
                         .resizable()
                         .scaledToFit()
                         .frame(width: 96, height: 96)
                         .clipShape(Circle())
                     
                     VStack(alignment: .center, spacing: 4) {
-                        Text(user.name)
+                        Text(vm.postUser.name)
                             .font(.title3)
                             .foregroundColor(.gray)
-                        Text("@\(user.nickName)")
+                        Text("@\(vm.postUser.nickName)")
                             .font(.subheadline)
                             .foregroundColor(.gray)
-                        Text(user.introText)
+                        Text(vm.postUser.introText)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
@@ -97,12 +102,12 @@ extension UserProfileView {
         .frame(height: 600)
     }
     
-//    private var userPostsView: some View {
-//        LazyVStack {
-//            ForEach(vm.userPosts) { post in
-//                NewPost(post: post)
-//            }
-//        }
-//        .padding(.bottom, 60)
-//    }
+    private var userPostsView: some View {
+        LazyVStack {
+            ForEach(vm.posts) { post in
+                NewPost(post: post)
+            }
+        }
+        .padding(.bottom, 60)
+    }
 }

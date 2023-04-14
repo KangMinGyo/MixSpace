@@ -37,6 +37,7 @@
 		8C024DDD29D1C665005788BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDC29D1C665005788BF /* Post.swift */; };
 		8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */; };
 		8C10593529E6CBFB00BED63F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593429E6CBFB00BED63F /* SearchBar.swift */; };
+		8C10593729E9302400BED63F /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593629E9302400BED63F /* UserProfileViewModel.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
@@ -85,6 +86,7 @@
 		8C024DDC29D1C665005788BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		8C024DDE29D1CC2E005788BF /* ProfileEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditViewModel.swift; sourceTree = "<group>"; };
 		8C10593429E6CBFB00BED63F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		8C10593629E9302400BED63F /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				8C024D9429C300F4005788BF /* ProfileFilterViewModel.swift */,
 				8C024DC729C97A68005788BF /* ProfileViewModel.swift */,
+				8C10593629E9302400BED63F /* UserProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				8C024DC529C886AB005788BF /* FirebaseManager.swift in Sources */,
 				8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */,
 				8C024DD829C9991B005788BF /* ProfileEditView.swift in Sources */,
+				8C10593729E9302400BED63F /* UserProfileViewModel.swift in Sources */,
 				8C886FAE29D56132008117AC /* PostService.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,

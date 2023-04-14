@@ -64,7 +64,7 @@ struct PostService {
         }
     }
     
-    func fetchPosts(forUid uid: String, completion: @escaping([Post]) -> Void) {
+    func fetchPost(forUid uid: String, completion: @escaping([Post]) -> Void) {
         FirebaseManager.shared.fireStore
             .collection("posts")
             .whereField("uid", isEqualTo: uid)

@@ -143,5 +143,6 @@ extension ProfileView {
         .frame(minWidth: 0, maxWidth: .infinity)
         .frame(height: 100)
         .background(Rectangle().foregroundColor(.white))
+
     }
 }

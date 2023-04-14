@@ -1,21 +1,23 @@
 //
-//  profileViewModel.swift
+//  UserProfileViewModel.swift
 //  MixSpace
 //
-//  Created by KangMingyo on 2023/03/21.
+//  Created by KangMingyo on 2023/04/14.
 //
 
 import Foundation
 
-class ProfileViewModel: ObservableObject {
+class UserProfileViewModel: ObservableObject {
     
     @Published var user: User?
     @Published var posts = [Post]()
     
+    let postUser: User
     let service = UserService()
     let postService = PostService()
     
-    init() {
+    init(postUser: User) {
+        self.postUser = postUser
         fetchCurrentUser()
         fetchPosts()
     }
@@ -28,7 +30,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func fetchPosts() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let uid = postUser.id else { return }
         postService.fetchPost(forUid: uid) { posts in
             self.posts = posts
             
