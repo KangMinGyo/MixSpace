@@ -9,12 +9,16 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct NewPost: View {
-    let post: Post
+    @ObservedObject var vm: NewPostViewModel
+    
+    init(post: Post) {
+        self.vm = NewPostViewModel(post: post)
+    }
     
     var body: some View {
         VStack() {
             
-            if let user = post.user {
+            if let user = vm.post.user {
                 HStack {
                     WebImage(url: URL(string: user.profileImageURL))
                         .resizable()
@@ -25,7 +29,7 @@ struct NewPost: View {
                         Text("@\(user.nickName)")
                             .font(.system(size: 15))
                             .bold()
-                        Text("\(post.time)")
+                        Text("\(vm.post.time)")
                             .font(.caption)
                             .foregroundColor(.gray)
                     }
@@ -35,7 +39,7 @@ struct NewPost: View {
                 .padding(.horizontal)
             }
 
-            WebImage(url: URL(string: post.imageURL))
+            WebImage(url: URL(string: vm.post.imageURL))
                 .resizable()
                 .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: 250)
@@ -48,10 +52,11 @@ struct NewPost: View {
                 HStack {
                     Button {
                         //종아요
+                        vm.likePost()
                     } label: {
-                        Image(systemName: "heart")
+                        Image(systemName: vm.post.didLike ?? false ? "heart.fill" : "heart")
                             .font(.title3)
-                            .foregroundColor(Color("SpaceBlue"))
+                            .foregroundColor(vm.post.didLike ?? false ? Color.red : Color("SpaceBlue"))
                     }
                     Button {
                         // 공유
@@ -63,7 +68,7 @@ struct NewPost: View {
                 }
                 .padding(.bottom, 4)
 
-                Text(post.text) //*
+                Text(vm.post.text) //*
                     .font(.subheadline)
                 
                 HStack {

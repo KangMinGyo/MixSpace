@@ -57,11 +57,10 @@ struct PostService {
             .collection("posts")
             .order(by: "timeStamp", descending: true)
             .getDocuments { snapshot, err in
-            guard let documents = snapshot?.documents else { return }
-            
-            let posts = documents.compactMap({ try? $0.data(as: Post.self) })
-            completion(posts)
-        }
+                guard let documents = snapshot?.documents else { return }
+                let posts = documents.compactMap({ try? $0.data(as: Post.self) })
+                completion(posts)
+            }
     }
     
     func fetchPost(forUid uid: String, completion: @escaping([Post]) -> Void) {
@@ -73,6 +72,23 @@ struct PostService {
                 
                 let posts = documents.compactMap({ try? $0.data(as: Post.self) })
                 completion(posts.sorted(by: { $0.timeStamp > $1.timeStamp }))
+            }
+    }
+    
+    func likePost(_ post: Post, completion: @escaping() -> Void) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let postId = post.id else { return }
+        
+        let userLikesRef = FirebaseManager.shared.fireStore
+            .collection("users")
+            .document(uid)
+            .collection("user-likes")
+        
+        FirebaseManager.shared.fireStore.collection("posts").document(postId)
+            .updateData(["like": post.like + 1]) { _ in
+                userLikesRef.document(postId).setData([:]) { _ in
+                    completion()
+                }
             }
     }
 }

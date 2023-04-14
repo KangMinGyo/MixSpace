@@ -20,6 +20,7 @@ struct Post: Codable, Identifiable, Hashable {
     let comment: Int
     
     var user: User?
+    var didLike: Bool? = false
     
     var time: String {
         let formatter = RelativeDateTimeFormatter()
