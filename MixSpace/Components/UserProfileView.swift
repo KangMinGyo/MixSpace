@@ -13,7 +13,7 @@ struct UserProfileView: View {
 
     @ObservedObject var vm: UserProfileViewModel
     @AppStorage("logStatus") var logStatus = false
-    @State private var selectionFilter: ProfileFilterViewModel = .space
+    @State private var selectionFilter: ProfileFilterViewModel = .post
     
     init(user: User) {
         self.vm = UserProfileViewModel(postUser: user)
@@ -61,6 +61,18 @@ extension UserProfileView {
                             .foregroundColor(.gray)
                     }
                     .onAppear(perform: vm.fetchCurrentUser)
+                    
+                    Button {
+                        vm.followingUser(userId: vm.postUser.uid)
+                    } label: {
+                        Text("팔로우")
+                            .font(.subheadline)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .foregroundColor(.white)
+                            .background(Color("SpaceYellow"))
+                            .cornerRadius(30)
+                    }
                 }
                 .padding(.top, 100)
                 

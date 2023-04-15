@@ -14,7 +14,7 @@ struct ProfileView: View {
     @ObservedObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
     @State var showProfileEditView = false
-    @State private var selectionFilter: ProfileFilterViewModel = .space
+    @State private var selectionFilter: ProfileFilterViewModel = .post
     
     var body: some View {
         

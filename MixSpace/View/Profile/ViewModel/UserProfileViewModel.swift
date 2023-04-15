@@ -44,6 +44,12 @@ class UserProfileViewModel: ObservableObject {
         }
     }
     
+    func followingUser(userId: String) {
+        service.followingUser(userId) {
+            
+        }
+    }
+    
 //    func fetchPosts() {
 //        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
 //        postService.fetchPost(forUid: uid) { posts in

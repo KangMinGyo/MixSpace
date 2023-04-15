@@ -22,6 +22,7 @@ struct User: Codable, Identifiable, Hashable {
     let follower: Int
     let following: Int
     
+    var didFollow: Bool? = false
 //    
 //    init(data: [String: Any]) {
 //        self.uid = data["uid"] as? String ?? ""

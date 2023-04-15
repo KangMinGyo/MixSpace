@@ -109,3 +109,83 @@ struct UserService {
             }
     }
 }
+
+//MARK: Follow 
+extension UserService {
+    
+//    func followingUser(user: User, _ userId: String, completion: @escaping() -> Void) {
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+//
+//        print("uid: \(uid)") //나
+//        print("userid: \(userId)") //상대
+//        let userfriendsRef = FirebaseManager.shared.fireStore
+//            .collection("users")
+//            .document(uid)
+//            .collection("user-friend")
+//
+//        FirebaseManager.shared.fireStore.collection("users").document(userId)
+//            .updateData(["following": user.following + 1]) { _ in
+//                userfriendsRef.document(userId).setData([:]) { _ in
+//                    completion()
+//                }
+//            }
+//    }
+//
+//    func unlikePost(_ post: Post, completion: @escaping() -> Void) {
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+//        guard let postId = post.id else { return }
+//        guard post.like > 0 else { return }
+//
+//        let userLikesRef = FirebaseManager.shared.fireStore
+//            .collection("users")
+//            .document(uid)
+//            .collection("user-likes")
+//
+//        FirebaseManager.shared.fireStore.collection("posts").document(postId)
+//            .updateData(["like": post.like - 1]) { _ in
+//                userLikesRef.document(postId).delete { _ in
+//                    completion()
+//                }
+//            }
+//    }
+//
+//    func checkIfUserLikedPost(_ post: Post, completion: @escaping(Bool) -> Void) {
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+//        guard let postId = post.id else { return }
+//
+//        FirebaseManager.shared.fireStore
+//            .collection("users")
+//            .document(uid)
+//            .collection("user-likes")
+//            .document(postId).getDocument { snapshot, _ in
+//                guard let snapshot = snapshot else { return }
+//                completion(snapshot.exists)
+//            }
+//    }
+//
+//    func fetchLikedPosts(forUid uid: String, completion: @escaping([Post]) -> Void) {
+//        var posts = [Post]()
+//
+//        FirebaseManager.shared.fireStore
+//            .collection("users")
+//            .document(uid)
+//            .collection("user-likes")
+//            .getDocuments { snapshot, _ in
+//                guard let documents = snapshot?.documents else { return }
+//
+//                documents.forEach { doc in
+//                    let postId = doc.documentID
+//
+//                    FirebaseManager.shared.fireStore
+//                        .collection("posts")
+//                        .document(postId)
+//                        .getDocument { snapshot, _ in
+//                            guard let post = try? snapshot?.data(as: Post.self) else { return }
+//                            posts.append(post)
+//
+//                            completion(posts)
+//                        }
+//                }
+//            }
+//    }
+}

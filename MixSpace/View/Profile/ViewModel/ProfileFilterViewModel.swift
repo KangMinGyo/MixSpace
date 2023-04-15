@@ -8,12 +8,12 @@
 import Foundation
 
 enum ProfileFilterViewModel: Int, CaseIterable {
-    case space
+    case post
     case liked
     
     var title: String {
         switch self {
-        case .space: return "space"
+        case .post: return "post"
         case .liked: return "liked"
             
         }

@@ -24,7 +24,7 @@ class ProfileViewModel: ObservableObject {
     
     func posts(forFilter filter: ProfileFilterViewModel) -> [Post] {
         switch filter {
-        case .space:
+        case .post:
             return posts
         case .liked:
             return likedPosts
