@@ -63,7 +63,7 @@ extension UserProfileView {
                     .onAppear(perform: vm.fetchCurrentUser)
                     
                     Button {
-                        vm.followingUser(userId: vm.postUser.uid)
+                        //팔로우
                     } label: {
                         Text("팔로우")
                             .font(.subheadline)

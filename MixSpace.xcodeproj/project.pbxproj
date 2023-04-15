@@ -39,6 +39,7 @@
 		8C10593529E6CBFB00BED63F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593429E6CBFB00BED63F /* SearchBar.swift */; };
 		8C10593729E9302400BED63F /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593629E9302400BED63F /* UserProfileViewModel.swift */; };
 		8C10593A29E9381700BED63F /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593929E9381700BED63F /* NewPostViewModel.swift */; };
+		8C10593C29EAE0FD00BED63F /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593B29EAE0FD00BED63F /* ProfileService.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
@@ -89,6 +90,7 @@
 		8C10593429E6CBFB00BED63F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		8C10593629E9302400BED63F /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
 		8C10593929E9381700BED63F /* NewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
+		8C10593B29EAE0FD00BED63F /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			children = (
 				8C886FAD29D56132008117AC /* PostService.swift */,
 				8C886FAF29D5AA4C008117AC /* UserService.swift */,
+				8C10593B29EAE0FD00BED63F /* ProfileService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				8C886FBA29D6FAC9008117AC /* SignUpView.swift in Sources */,
 				8C024DA829C4522C005788BF /* SideMenuOptionViewModel.swift in Sources */,
 				8C024DB929C6E773005788BF /* TextArea.swift in Sources */,
+				8C10593C29EAE0FD00BED63F /* ProfileService.swift in Sources */,
 				8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */,
 				8C024D8629C1EFC2005788BF /* NewPost.swift in Sources */,
 				8CBB345429BF5AA800B98E4A /* LoginViewModel.swift in Sources */,

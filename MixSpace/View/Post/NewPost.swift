@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct NewPost: View {
     @ObservedObject var vm: NewPostViewModel
+    @State private var shareButtonPressed = false
     
     init(post: Post) {
         self.vm = NewPostViewModel(post: post)
@@ -58,9 +59,8 @@ struct NewPost: View {
                             .font(.title3)
                             .foregroundColor(vm.post.didLike ?? false ? Color.red : Color("SpaceBlue"))
                     }
-                    Button {
-                        // 공유
-                    } label: {
+                    
+                    ShareLink(item: vm.post.text) {
                         Image(systemName: "square.and.arrow.up")
                             .font(.system(size: 19))
                             .foregroundColor(Color("SpaceBlue"))
