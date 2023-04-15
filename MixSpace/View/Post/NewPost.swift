@@ -10,7 +10,6 @@ import SDWebImageSwiftUI
 
 struct NewPost: View {
     @ObservedObject var vm: NewPostViewModel
-//    @ObservedObject var homeVm = HomeViewModel()
     
     init(post: Post) {
         self.vm = NewPostViewModel(post: post)
@@ -54,7 +53,6 @@ struct NewPost: View {
                     Button {
                         //종아요
                         vm.post.didLike ?? false ? vm.unlikePost() : vm.likePost()
-//                        homeVm.fetchPost()
                     } label: {
                         Image(systemName: vm.post.didLike ?? false ? "heart.fill" : "heart")
                             .font(.title3)

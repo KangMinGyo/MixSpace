@@ -9,12 +9,12 @@ import Foundation
 
 enum ProfileFilterViewModel: Int, CaseIterable {
     case space
-    case mySpace
+    case liked
     
     var title: String {
         switch self {
         case .space: return "space"
-        case .mySpace: return "mySpace"
+        case .liked: return "liked"
             
         }
     }

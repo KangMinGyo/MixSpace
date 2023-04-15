@@ -122,27 +122,58 @@ extension ProfileView {
     
     private var userPostsView: some View {
         LazyVStack(pinnedViews: [.sectionHeaders]) {
-            Section(header: header) {
-                ForEach(vm.posts) { post in
+            Section(header: filterBar) {
+                ForEach(vm.posts(forFilter: self.selectionFilter)) { post in
                     NewPost(post: post)
                 }
             }
         }
         .padding(.bottom, 60)
     }
+
+//    private var header: some View {
+//        VStack {
+//            Spacer()
+//            Text("내 게시물")
+//                .fontWeight(.bold)
+//                .padding(.top, 20)
+//            Text("\(vm.posts.count)개의 게시물")
+//            Spacer()
+//        }
+//        .frame(minWidth: 0, maxWidth: .infinity)
+//        .frame(height: 100)
+//        .background(Rectangle().foregroundColor(.white))
+//
+//    }
     
-    private var header: some View {
-        VStack {
-            Spacer()
-            Text("내 게시물")
-                .fontWeight(.bold)
-                .padding(.top, 20)
-            Text("\(vm.posts.count)개의 게시물")
-            Spacer()
+    private var filterBar: some View {
+        HStack {
+            ForEach(ProfileFilterViewModel.allCases, id: \.rawValue) { item in
+                VStack {
+                    Text("\(item.title)")
+                        .font(.subheadline)
+                        .fontWeight(selectionFilter == item ? .semibold : .regular)
+                        .foregroundColor(selectionFilter == item ? .primary : .gray)
+                    
+                    if selectionFilter == item {
+                        Rectangle()
+                            .foregroundColor(Color("SpaceYellow"))
+                            .frame(height: 3)
+                    } else {
+                        Rectangle()
+                            .foregroundColor(Color("SpaceWhite"))
+                            .frame(height: 3)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        self.selectionFilter = item
+                    }
+                }
+            }
         }
         .frame(minWidth: 0, maxWidth: .infinity)
         .frame(height: 100)
         .background(Rectangle().foregroundColor(.white))
-
     }
 }

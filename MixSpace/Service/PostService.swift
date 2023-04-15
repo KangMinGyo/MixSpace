@@ -74,6 +74,10 @@ struct PostService {
                 completion(posts.sorted(by: { $0.timeStamp > $1.timeStamp }))
             }
     }
+}
+
+//MARK: Likes
+extension PostService {
     
     func likePost(_ post: Post, completion: @escaping() -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
@@ -121,6 +125,32 @@ struct PostService {
             .document(postId).getDocument { snapshot, _ in
                 guard let snapshot = snapshot else { return }
                 completion(snapshot.exists)
+            }
+    }
+    
+    func fetchLikedPosts(forUid uid: String, completion: @escaping([Post]) -> Void) {
+        var posts = [Post]()
+        
+        FirebaseManager.shared.fireStore
+            .collection("users")
+            .document(uid)
+            .collection("user-likes")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                documents.forEach { doc in
+                    let postId = doc.documentID
+                    
+                    FirebaseManager.shared.fireStore
+                        .collection("posts")
+                        .document(postId)
+                        .getDocument { snapshot, _ in
+                            guard let post = try? snapshot?.data(as: Post.self) else { return }
+                            posts.append(post)
+                            
+                            completion(posts)
+                        }
+                }
             }
     }
 }
