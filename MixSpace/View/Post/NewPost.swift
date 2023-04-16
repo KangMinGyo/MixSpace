@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct NewPost: View {
     @ObservedObject var vm: NewPostViewModel
     @State private var shareButtonPressed = false
+    @State var renderedImage: Image?
     
     init(post: Post) {
         self.vm = NewPostViewModel(post: post)
@@ -39,7 +40,7 @@ struct NewPost: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
             }
-
+            
             WebImage(url: URL(string: vm.post.imageURL))
                 .resizable()
                 .scaledToFill()
@@ -59,12 +60,47 @@ struct NewPost: View {
                             .font(.title3)
                             .foregroundColor(vm.post.didLike ?? false ? Color.red : Color("SpaceBlue"))
                     }
-                    
-                    ShareLink(item: vm.post.text) {
-                        Image(systemName: "square.and.arrow.up")
-                            .font(.system(size: 19))
+                    Button {
+                        //댓글
+                    } label: {
+                        Image(systemName: "bubble.left")
+                            .font(.body)
                             .foregroundColor(Color("SpaceBlue"))
                     }
+                    
+                    Spacer()
+                    AsyncImage(url: URL(string: vm.post.imageURL)) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                            ShareLink(item: image, preview: SharePreview(vm.post.text, image: image)) {
+                                Image(systemName: "square.and.arrow.up")
+                                    .font(.system(size: 19))
+                                    .foregroundColor(Color("SpaceBlue"))
+                            }
+                        }
+                    }.frame(width: 0, height: 0)
+                        .padding(.horizontal, 20)
+                            
+//                    let url = URL(string: vm.post.imageURL)
+//                    if let data = try? Data(contentsOf: url!) {
+//                        let renderedImage = Image(uiImage: UIImage(data: data)!)
+                        
+//                    ShareLink(item: vm.image(url: vm.post.imageURL), preview: SharePreview(vm.post.text, image: vm.image(url: vm.post.imageURL))) {
+//                        Image(systemName: "square.and.arrow.up")
+//                            .font(.system(size: 19))
+//                            .foregroundColor(Color("SpaceBlue"))
+//                    }
+                    
+                    
+                    
+                    //                    ShareLink(item: vm.post.postImage, preview: SharePreview(vm.post.text, image: vm.post.postImage)) {
+//                        Image(systemName: "square.and.arrow.up")
+//                            .font(.system(size: 19))
+//                            .foregroundColor(Color("SpaceBlue"))
+//                    }
+
+                    
                 }
                 .padding(.bottom, 4)
 
@@ -94,3 +130,13 @@ struct NewPost: View {
 //        NewPost()
 //    }
 //}
+
+extension Image {
+    func data(url: URL) -> Image {
+        if let data = try? Data(contentsOf: url) {
+            return Image(uiImage: UIImage(data: data)!)
+                .resizable()
+        }
+        return Image("Profile")
+    }
+}

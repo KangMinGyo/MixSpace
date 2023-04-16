@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import UIKit
 
 class NewPostViewModel: ObservableObject {
     private let service = PostService()
@@ -35,4 +37,16 @@ class NewPostViewModel: ObservableObject {
             }
         }
     }
+    
+//    func image(url: String) -> Image {
+//        let url = URL(string: url)
+//
+//        if let data = try? Data(contentsOf: url!) {
+//            DispatchQueue.main.async {
+//                return Image(uiImage: UIImage(data: data)!)
+//            }
+//        } else {
+//            return Image("Profile")
+//        }
+//    }
 }

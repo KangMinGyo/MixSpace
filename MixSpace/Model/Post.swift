@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import SwiftUI
 
 struct Post: Codable, Identifiable, Hashable {
     
@@ -27,14 +28,5 @@ struct Post: Codable, Identifiable, Hashable {
         formatter.unitsStyle = .full
         return formatter.localizedString(for: timeStamp, relativeTo: Date())
     }
+                      
 }
-
-//    init(data: [String: Any]) {
-//        self.uid = data["uid"] as? String ?? ""
-//        self.text = data["text"] as? String ?? ""
-//        self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp(date: Date())
-//        self.imageURL = data["imageURL"] as? String ?? ""
-//        self.like = data["like"] as? Int ?? 0
-//        self.comment = data["comment"] as? Int ?? 0
-//    }
-//    
