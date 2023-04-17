@@ -12,7 +12,7 @@ class UserProfileViewModel: ObservableObject {
     @Published var user: User?
     @Published var posts = [Post]()
     
-    let postUser: User
+    var postUser: User
     let service = UserService()
     let postService = PostService()
     let profileService = ProfileService()
@@ -21,6 +21,7 @@ class UserProfileViewModel: ObservableObject {
         self.postUser = postUser
         fetchCurrentUser()
         fetchPosts()
+        checkFollowState()
     }
     
     func fetchCurrentUser() {
@@ -45,18 +46,60 @@ class UserProfileViewModel: ObservableObject {
         }
     }
     
+    //MARK: Following & Follower
+    
     func followingUser() {
         guard let uid = postUser.id else { return }
         guard let user = user else { return }
-        profileService.followingUser(user: user, uid) {
-            print("팔로우 완료?")
+        profileService.followingUser(user: user, userId: uid) {
+            print()
+        }
+        profileService.followerUser(user: user, userId: uid) {
+            print()
         }
     }
     
-    func followerUser() {
+//    func followerUser() {
+//        guard let uid = postUser.id else { return }
+//        guard let user = user else { return }
+//        profileService.followerUser(user: user, userId: uid) {
+//            print("완.")
+//        }
+//    }
+    
+    func unfollowingUser() {
         guard let uid = postUser.id else { return }
-        profileService.followerUser(uid) {
-            print("완.")
+        guard let user = user else { return }
+        profileService.unfollowingUser(user: user, userId: uid) {
+            print("언팔로우 완료?")
+        }
+        profileService.unfollowerUser(user: user, userId: uid) {
+            print("언완.")
         }
     }
+    
+//    func unfollowerUser() {
+//        guard let uid = postUser.id else { return }
+//        guard let user = user else { return }
+//        profileService.unfollowerUser(user: user, userId: uid) {
+//            print("언완.")
+//        }
+//    }
+    
+    func checkFollowState() {
+        guard let uid = postUser.id else { return }
+        profileService.checkFollowState(userId: uid) { didFollow in
+            if didFollow {
+                self.postUser.didFollow = true
+            }
+        }
+    }
+    
+//    func checkIfUserLikedPost() {
+//        service.checkIfUserLikedPost(post) { didLike in
+//            if didLike {
+//                self.post.didLike = true
+//            }
+//        }
+//    }
 }

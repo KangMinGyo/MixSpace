@@ -64,10 +64,10 @@ extension UserProfileView {
                     
                     Button {
                         //팔로우
-                        vm.followingUser()
-                        vm.followerUser()
+                        vm.postUser.didFollow ?? false ? vm.unfollowingUser() : vm.followingUser()
+
                     } label: {
-                        Text("팔로우")
+                        Text(vm.postUser.didFollow ?? false ? "팔로잉" : "팔로우")
                             .font(.subheadline)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 20)
@@ -92,7 +92,7 @@ extension UserProfileView {
                             .foregroundColor(.gray)
                         
                         VStack {
-                            Text("7")
+                            Text("\(vm.postUser.follower)")
                             Text("팔로워")
                                 .foregroundColor(.gray)
                                 .font(.headline)
@@ -103,7 +103,7 @@ extension UserProfileView {
                             .foregroundColor(.gray)
                         
                         VStack {
-                            Text("10")
+                            Text("\(vm.postUser.following)")
                             Text("팔로잉")
                                 .foregroundColor(.gray)
                                 .font(.headline)

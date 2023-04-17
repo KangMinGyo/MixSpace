@@ -96,7 +96,7 @@ extension ProfileView {
                             .foregroundColor(.gray)
                         
                         VStack {
-                            Text("7")
+                            Text("\(vm.user?.follower ?? 0)")
                             Text("팔로워")
                                 .foregroundColor(.gray)
                                 .font(.headline)
@@ -107,7 +107,7 @@ extension ProfileView {
                             .foregroundColor(.gray)
                         
                         VStack {
-                            Text("10")
+                            Text("\(vm.user?.following ?? 0)")
                             Text("팔로잉")
                                 .foregroundColor(.gray)
                                 .font(.headline)
