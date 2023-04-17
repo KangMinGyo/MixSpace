@@ -73,6 +73,7 @@ struct NewPost: View {
                         if let image = phase.image {
                             image
                                 .resizable()
+
                             ShareLink(item: image, preview: SharePreview(vm.post.text, image: image)) {
                                 Image(systemName: "square.and.arrow.up")
                                     .font(.system(size: 19))
@@ -81,26 +82,6 @@ struct NewPost: View {
                         }
                     }.frame(width: 0, height: 0)
                         .padding(.horizontal, 20)
-                            
-//                    let url = URL(string: vm.post.imageURL)
-//                    if let data = try? Data(contentsOf: url!) {
-//                        let renderedImage = Image(uiImage: UIImage(data: data)!)
-                        
-//                    ShareLink(item: vm.image(url: vm.post.imageURL), preview: SharePreview(vm.post.text, image: vm.image(url: vm.post.imageURL))) {
-//                        Image(systemName: "square.and.arrow.up")
-//                            .font(.system(size: 19))
-//                            .foregroundColor(Color("SpaceBlue"))
-//                    }
-                    
-                    
-                    
-                    //                    ShareLink(item: vm.post.postImage, preview: SharePreview(vm.post.text, image: vm.post.postImage)) {
-//                        Image(systemName: "square.and.arrow.up")
-//                            .font(.system(size: 19))
-//                            .foregroundColor(Color("SpaceBlue"))
-//                    }
-
-                    
                 }
                 .padding(.bottom, 4)
 

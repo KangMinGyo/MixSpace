@@ -15,6 +15,7 @@ class UserProfileViewModel: ObservableObject {
     let postUser: User
     let service = UserService()
     let postService = PostService()
+    let profileService = ProfileService()
     
     init(postUser: User) {
         self.postUser = postUser
@@ -41,6 +42,21 @@ class UserProfileViewModel: ObservableObject {
                     self.posts[i].user = user
                 }
             }
+        }
+    }
+    
+    func followingUser() {
+        guard let uid = postUser.id else { return }
+        guard let user = user else { return }
+        profileService.followingUser(user: user, uid) {
+            print("팔로우 완료?")
+        }
+    }
+    
+    func followerUser() {
+        guard let uid = postUser.id else { return }
+        profileService.followerUser(uid) {
+            print("완.")
         }
     }
 }

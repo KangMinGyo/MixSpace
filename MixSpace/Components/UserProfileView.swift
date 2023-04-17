@@ -64,6 +64,8 @@ extension UserProfileView {
                     
                     Button {
                         //팔로우
+                        vm.followingUser()
+                        vm.followerUser()
                     } label: {
                         Text("팔로우")
                             .font(.subheadline)
