@@ -14,7 +14,8 @@ struct ProfileView: View {
     @ObservedObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
     @State var showProfileEditView = false
-    @State var showFriendList = false
+    @State var showFollowingList = false
+    @State var showFollowerList = false
     @State private var selectionFilter: ProfileFilterViewModel = .post
     
     var body: some View {
@@ -97,7 +98,7 @@ extension ProfileView {
                             .foregroundColor(.gray)
                         
                         Button {
-                            
+                            showFollowerList.toggle()
                         } label: {
                             VStack {
                                 Text("\(vm.user?.follower ?? 0)")
@@ -106,6 +107,9 @@ extension ProfileView {
                                     .foregroundColor(.gray)
                                     .font(.headline)
                             }
+                            .sheet(isPresented: $showFollowerList) {
+                                FollowerView()
+                            }
                         }
                         
                         Rectangle()
@@ -113,7 +117,7 @@ extension ProfileView {
                             .foregroundColor(.gray)
                         
                         Button {
-                            showFriendList.toggle()
+                            showFollowingList.toggle()
                         } label: {
                             VStack {
                                 Text("\(vm.user?.following ?? 0)")
@@ -122,7 +126,7 @@ extension ProfileView {
                                     .foregroundColor(.gray)
                                     .font(.headline)
                             }
-                            .sheet(isPresented: $showFriendList) {
+                            .sheet(isPresented: $showFollowingList) {
                                 FriendListView()
                             }
                         }

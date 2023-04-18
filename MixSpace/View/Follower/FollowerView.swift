@@ -1,5 +1,5 @@
 //
-//  FriendList.swift
+//  FollowerView.swift
 //  MixSpace
 //
 //  Created by KangMingyo on 2023/04/18.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct FriendListView: View {
-    @ObservedObject var vm = FriendListViewModel()
+struct FollowerView: View {
+    @ObservedObject var vm = FollowerViewModel()
     
     var body: some View {
         NavigationView {
@@ -25,14 +25,14 @@ struct FriendListView: View {
                     }
                 }
             }
-            .navigationTitle("친구 목록")
+            .navigationTitle("Follower")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
 
-struct FriendListView_Previews: PreviewProvider {
+struct FollowerView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendListView()
+        FollowerView()
     }
 }

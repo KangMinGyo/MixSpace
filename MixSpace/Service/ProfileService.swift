@@ -42,14 +42,16 @@ class ProfileService: ObservableObject {
     func followerUser(user: User, postUser: User, completion: @escaping() -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         let userId = postUser.uid
-        let name = user.name
-        let nickName = user.nickName
-        let profileURL = user.profileImageURL
         
-        let userData = ["uid": userId,
-                        "name": name,
-                        "nickName": nickName,
-                        "profileURL": profileURL]
+        let userData = ["email": user.email,
+                        "uid": user.uid,
+                        "name": user.name,
+                        "nickName": user.nickName,
+                        "introText": user.introText,
+                        "profileImageURL": user.profileImageURL,
+                        "postNum": user.postNum,
+                        "follower": user.follower,
+                        "following": user.following] as [String : Any]
         
         FirebaseManager.shared.fireStore
             .collection("follower")
@@ -126,19 +128,21 @@ class ProfileService: ObservableObject {
             .getDocuments { snapshot, _ in
                 guard let documents = snapshot?.documents else { return }
                 let users = documents.compactMap({ try? $0.data(as: User.self) })
-                print("가져왔지롱롱 \(users)")
                 completion(users)
             }
     }
     
-//    //MARK: SEARCH (USERS)
-//    func fetchUsers(completion: @escaping([User]) -> Void) {
-//        FirebaseManager.shared.fireStore.collection("users")
-//            .getDocuments { snapshot, _ in
-//                guard let documents = snapshot?.documents else { return }
-//                let users = documents.compactMap({ try? $0.data(as: User.self) })
-//
-//                completion(users)
-//            }
-//    }
+    func fetchFollower(completion: @escaping([User]) -> Void) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        FirebaseManager.shared.fireStore
+            .collection("follower")
+            .document(uid)
+            .collection("follower")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                let users = documents.compactMap({ try? $0.data(as: User.self) })
+                completion(users)
+            }
+    }
 }

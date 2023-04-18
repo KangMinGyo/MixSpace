@@ -43,6 +43,8 @@
 		8C10594029EBD5F000BED63F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593F29EBD5F000BED63F /* ImageLoader.swift */; };
 		8C10594429EE7BC100BED63F /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594329EE7BC100BED63F /* FriendListView.swift */; };
 		8C10594729EE7C7900BED63F /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594629EE7C7900BED63F /* FriendListViewModel.swift */; };
+		8C10594C29EEBDE100BED63F /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594B29EEBDE100BED63F /* FollowerView.swift */; };
+		8C10594E29EEBDFF00BED63F /* FollowerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594D29EEBDFF00BED63F /* FollowerViewModel.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
@@ -97,6 +99,8 @@
 		8C10593F29EBD5F000BED63F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		8C10594329EE7BC100BED63F /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
 		8C10594629EE7C7900BED63F /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
+		8C10594B29EEBDE100BED63F /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
+		8C10594D29EEBDFF00BED63F /* FollowerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerViewModel.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -340,13 +344,22 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
-		8C10594529EE7BC800BED63F /* FriendList */ = {
+		8C10594529EE7BC800BED63F /* Following */ = {
 			isa = PBXGroup;
 			children = (
 				8C10594329EE7BC100BED63F /* FriendListView.swift */,
 				8C10594629EE7C7900BED63F /* FriendListViewModel.swift */,
 			);
-			path = FriendList;
+			path = Following;
+			sourceTree = "<group>";
+		};
+		8C10594A29EEBD9600BED63F /* Follower */ = {
+			isa = PBXGroup;
+			children = (
+				8C10594B29EEBDE100BED63F /* FollowerView.swift */,
+				8C10594D29EEBDFF00BED63F /* FollowerViewModel.swift */,
+			);
+			path = Follower;
 			sourceTree = "<group>";
 		};
 		8C7608ED29D40297004DD238 /* View */ = {
@@ -458,7 +471,8 @@
 				8C024DD429C998CF005788BF /* ProfileEdit */,
 				8C024DA229C43B24005788BF /* SideMenu */,
 				8C886FBD29D9A27B008117AC /* ImageCropping */,
-				8C10594529EE7BC800BED63F /* FriendList */,
+				8C10594A29EEBD9600BED63F /* Follower */,
+				8C10594529EE7BC800BED63F /* Following */,
 				8C10593829E937F600BED63F /* Post */,
 			);
 			path = View;
@@ -554,6 +568,7 @@
 				8C886FBF29D9A29F008117AC /* ImageCroppingView.swift in Sources */,
 				8C024DB229C5AD14005788BF /* SideMenuOptionView.swift in Sources */,
 				8C024D9A29C42936005788BF /* SearchView.swift in Sources */,
+				8C10594C29EEBDE100BED63F /* FollowerView.swift in Sources */,
 				8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */,
 				8C024D9029C2F1B7005788BF /* ProfileView.swift in Sources */,
 				8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */,
@@ -572,6 +587,7 @@
 				8C024D8129C09756005788BF /* ContentView.swift in Sources */,
 				8C10593529E6CBFB00BED63F /* SearchBar.swift in Sources */,
 				8C024DA629C43B7D005788BF /* SideMenuView.swift in Sources */,
+				8C10594E29EEBDFF00BED63F /* FollowerViewModel.swift in Sources */,
 				8C886FB029D5AA4C008117AC /* UserService.swift in Sources */,
 				8C024DAA29C47A34005788BF /* UserStatsView.swift in Sources */,
 				8C024D7F29C095F0005788BF /* HomeView.swift in Sources */,

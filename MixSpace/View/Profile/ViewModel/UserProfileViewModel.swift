@@ -77,12 +77,4 @@ class UserProfileViewModel: ObservableObject {
             }
         }
     }
-    
-//    func checkIfUserLikedPost() {
-//        service.checkIfUserLikedPost(post) { didLike in
-//            if didLike {
-//                self.post.didLike = true
-//            }
-//        }
-//    }
 }

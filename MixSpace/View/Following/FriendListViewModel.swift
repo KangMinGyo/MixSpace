@@ -19,16 +19,6 @@ class FriendListViewModel: ObservableObject {
     func fetchFollowing() {
         service.fetchFollowing { users in
             self.users = users
-            
-            print("DEBUG--: Users \(users)")
         }
     }
 }
-
-//func fetchUsers() {
-//    service.fetchUsers { users in
-//        self.users = users
-//        
-//        print("DEBUG: Users \(users)")
-//    }
-//}
