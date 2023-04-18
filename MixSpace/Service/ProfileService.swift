@@ -19,7 +19,7 @@ class ProfileService: ObservableObject {
                         "uid": postUser.uid,
                         "name": postUser.name,
                         "nickName": postUser.nickName,
-                        "introText": postUser.profileImageURL,
+                        "introText": postUser.introText,
                         "profileImageURL": postUser.profileImageURL,
                         "postNum": postUser.postNum,
                         "follower": postUser.follower,
