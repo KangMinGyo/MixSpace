@@ -18,8 +18,7 @@ struct NewPost: View {
     }
     
     var body: some View {
-        VStack() {
-            
+        VStack {
             if let user = vm.post.user {
                 HStack {
                     WebImage(url: URL(string: user.profileImageURL))

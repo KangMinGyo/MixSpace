@@ -40,7 +40,6 @@ struct HomeContentView: View {
                         withAnimation(.easeInOut) {
                             showMenu.toggle()
                         }
-                        
                     } label: {
                         Image(systemName: "person.circle.fill")
                             .resizable()

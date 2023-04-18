@@ -41,6 +41,8 @@
 		8C10593A29E9381700BED63F /* NewPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593929E9381700BED63F /* NewPostViewModel.swift */; };
 		8C10593C29EAE0FD00BED63F /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593B29EAE0FD00BED63F /* ProfileService.swift */; };
 		8C10594029EBD5F000BED63F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10593F29EBD5F000BED63F /* ImageLoader.swift */; };
+		8C10594429EE7BC100BED63F /* FriendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594329EE7BC100BED63F /* FriendListView.swift */; };
+		8C10594729EE7C7900BED63F /* FriendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10594629EE7C7900BED63F /* FriendListViewModel.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
 		8C886FB029D5AA4C008117AC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAF29D5AA4C008117AC /* UserService.swift */; };
@@ -93,6 +95,8 @@
 		8C10593929E9381700BED63F /* NewPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewModel.swift; sourceTree = "<group>"; };
 		8C10593B29EAE0FD00BED63F /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		8C10593F29EBD5F000BED63F /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		8C10594329EE7BC100BED63F /* FriendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListView.swift; sourceTree = "<group>"; };
+		8C10594629EE7C7900BED63F /* FriendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListViewModel.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
 		8C886FAF29D5AA4C008117AC /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -336,6 +340,15 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
+		8C10594529EE7BC800BED63F /* FriendList */ = {
+			isa = PBXGroup;
+			children = (
+				8C10594329EE7BC100BED63F /* FriendListView.swift */,
+				8C10594629EE7C7900BED63F /* FriendListViewModel.swift */,
+			);
+			path = FriendList;
+			sourceTree = "<group>";
+		};
 		8C7608ED29D40297004DD238 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,6 +458,7 @@
 				8C024DD429C998CF005788BF /* ProfileEdit */,
 				8C024DA229C43B24005788BF /* SideMenu */,
 				8C886FBD29D9A27B008117AC /* ImageCropping */,
+				8C10594529EE7BC800BED63F /* FriendList */,
 				8C10593829E937F600BED63F /* Post */,
 			);
 			path = View;
@@ -545,9 +559,11 @@
 				8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */,
 				8C886FD029DD5966008117AC /* SearchViewModel.swift in Sources */,
 				8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */,
+				8C10594429EE7BC100BED63F /* FriendListView.swift in Sources */,
 				8C024D8E29C2F02E005788BF /* MainView.swift in Sources */,
 				8C024DC029C81F5D005788BF /* ImagePicker.swift in Sources */,
 				8C886FD229DD5CA7008117AC /* UserProfileView.swift in Sources */,
+				8C10594729EE7C7900BED63F /* FriendListViewModel.swift in Sources */,
 				8C024DDB29D068B0005788BF /* View+Extension.swift in Sources */,
 				8C024D9529C300F4005788BF /* ProfileFilterViewModel.swift in Sources */,
 				8C10593A29E9381700BED63F /* NewPostViewModel.swift in Sources */,

@@ -11,12 +11,19 @@ class ProfileService: ObservableObject {
     
     @Published var followCheck = false
 
-    func followingUser(user: User, userId: String, completion: @escaping() -> Void) {
-        guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
+    func followingUser(user: User, postUser: User, completion: @escaping() -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        let userId = postUser.uid
         
-        let userData = ["email": email,
-                        "uid": uid]
+        let userData = ["email": postUser.email,
+                        "uid": postUser.uid,
+                        "name": postUser.name,
+                        "nickName": postUser.nickName,
+                        "introText": postUser.profileImageURL,
+                        "profileImageURL": postUser.profileImageURL,
+                        "postNum": postUser.postNum,
+                        "follower": postUser.follower,
+                        "following": postUser.following] as [String : Any]
         
         FirebaseManager.shared.fireStore
             .collection("following")
@@ -32,12 +39,17 @@ class ProfileService: ObservableObject {
             }
     }
     
-    func followerUser(user: User, userId: String, completion: @escaping() -> Void) {
-        guard let email = FirebaseManager.shared.auth.currentUser?.email else { return }
+    func followerUser(user: User, postUser: User, completion: @escaping() -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        let userId = postUser.uid
+        let name = user.name
+        let nickName = user.nickName
+        let profileURL = user.profileImageURL
         
-        let userData = ["email": email,
-                        "uid": uid]
+        let userData = ["uid": userId,
+                        "name": name,
+                        "nickName": nickName,
+                        "profileURL": profileURL]
         
         FirebaseManager.shared.fireStore
             .collection("follower")
@@ -91,24 +103,6 @@ class ProfileService: ObservableObject {
             }
     }
     
-//    func unlikePost(_ post: Post, completion: @escaping() -> Void) {
-//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
-//        guard let postId = post.id else { return }
-//        guard post.like > 0 else { return }
-//
-//        let userLikesRef = FirebaseManager.shared.fireStore
-//            .collection("users")
-//            .document(uid)
-//            .collection("user-likes")
-//
-//        FirebaseManager.shared.fireStore.collection("posts").document(postId)
-//            .updateData(["like": post.like - 1]) { _ in
-//                userLikesRef.document(postId).delete { _ in
-//                    completion()
-//                }
-//            }
-//    }
-    
     func checkFollowState(userId: String, completion: @escaping(Bool) -> Void) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
         
@@ -122,5 +116,29 @@ class ProfileService: ObservableObject {
             }
     }
 
+    func fetchFollowing(completion: @escaping([User]) -> Void) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        FirebaseManager.shared.fireStore
+            .collection("following")
+            .document(uid)
+            .collection("following")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                let users = documents.compactMap({ try? $0.data(as: User.self) })
+                print("가져왔지롱롱 \(users)")
+                completion(users)
+            }
+    }
     
+//    //MARK: SEARCH (USERS)
+//    func fetchUsers(completion: @escaping([User]) -> Void) {
+//        FirebaseManager.shared.fireStore.collection("users")
+//            .getDocuments { snapshot, _ in
+//                guard let documents = snapshot?.documents else { return }
+//                let users = documents.compactMap({ try? $0.data(as: User.self) })
+//
+//                completion(users)
+//            }
+//    }
 }

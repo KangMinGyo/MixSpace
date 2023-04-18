@@ -14,6 +14,7 @@ struct ProfileView: View {
     @ObservedObject var vm = ProfileViewModel()
     @AppStorage("logStatus") var logStatus = false
     @State var showProfileEditView = false
+    @State var showFriendList = false
     @State private var selectionFilter: ProfileFilterViewModel = .post
     
     var body: some View {
@@ -95,22 +96,35 @@ extension ProfileView {
                             .frame(width: 1, height: 30)
                             .foregroundColor(.gray)
                         
-                        VStack {
-                            Text("\(vm.user?.follower ?? 0)")
-                            Text("팔로워")
-                                .foregroundColor(.gray)
-                                .font(.headline)
+                        Button {
+                            
+                        } label: {
+                            VStack {
+                                Text("\(vm.user?.follower ?? 0)")
+                                    .foregroundColor(.black)
+                                Text("팔로워")
+                                    .foregroundColor(.gray)
+                                    .font(.headline)
+                            }
                         }
                         
                         Rectangle()
                             .frame(width: 1, height: 30)
                             .foregroundColor(.gray)
                         
-                        VStack {
-                            Text("\(vm.user?.following ?? 0)")
-                            Text("팔로잉")
-                                .foregroundColor(.gray)
-                                .font(.headline)
+                        Button {
+                            showFriendList.toggle()
+                        } label: {
+                            VStack {
+                                Text("\(vm.user?.following ?? 0)")
+                                    .foregroundColor(.black)
+                                Text("팔로잉")
+                                    .foregroundColor(.gray)
+                                    .font(.headline)
+                            }
+                            .sheet(isPresented: $showFriendList) {
+                                FriendListView()
+                            }
                         }
                     }
                 }
@@ -130,21 +144,6 @@ extension ProfileView {
         }
         .padding(.bottom, 60)
     }
-
-//    private var header: some View {
-//        VStack {
-//            Spacer()
-//            Text("내 게시물")
-//                .fontWeight(.bold)
-//                .padding(.top, 20)
-//            Text("\(vm.posts.count)개의 게시물")
-//            Spacer()
-//        }
-//        .frame(minWidth: 0, maxWidth: .infinity)
-//        .frame(height: 100)
-//        .background(Rectangle().foregroundColor(.white))
-//
-//    }
     
     private var filterBar: some View {
         HStack {

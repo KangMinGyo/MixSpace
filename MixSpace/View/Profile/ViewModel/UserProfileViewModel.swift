@@ -49,23 +49,14 @@ class UserProfileViewModel: ObservableObject {
     //MARK: Following & Follower
     
     func followingUser() {
-        guard let uid = postUser.id else { return }
         guard let user = user else { return }
-        profileService.followingUser(user: user, userId: uid) {
+        profileService.followingUser(user: user, postUser: postUser) {
             print()
         }
-        profileService.followerUser(user: user, userId: uid) {
+        profileService.followerUser(user: user, postUser: postUser) {
             print()
         }
     }
-    
-//    func followerUser() {
-//        guard let uid = postUser.id else { return }
-//        guard let user = user else { return }
-//        profileService.followerUser(user: user, userId: uid) {
-//            print("완.")
-//        }
-//    }
     
     func unfollowingUser() {
         guard let uid = postUser.id else { return }
@@ -77,15 +68,7 @@ class UserProfileViewModel: ObservableObject {
             print("언완.")
         }
     }
-    
-//    func unfollowerUser() {
-//        guard let uid = postUser.id else { return }
-//        guard let user = user else { return }
-//        profileService.unfollowerUser(user: user, userId: uid) {
-//            print("언완.")
-//        }
-//    }
-    
+
     func checkFollowState() {
         guard let uid = postUser.id else { return }
         profileService.checkFollowState(userId: uid) { didFollow in
