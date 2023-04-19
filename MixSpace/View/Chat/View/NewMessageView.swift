@@ -54,7 +54,7 @@ extension NewMessageView {
                         .cornerRadius(22)
                         .overlay(RoundedRectangle(cornerRadius: 22)
                             .stroke(Color.gray, lineWidth: 1))
-                    Text(user.email)
+                    Text("@\(user.nickName)")
                         .foregroundColor(.black)
                     Spacer()
                 }.padding(.horizontal)

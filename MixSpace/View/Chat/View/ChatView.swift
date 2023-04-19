@@ -122,7 +122,7 @@ extension ChatView {
             }
             .foregroundColor(.white)
             .padding()
-            .background(Color.accentColor)
+            .background(Color("SpaceYellow"))
             .cornerRadius(32)
             .padding(.horizontal)
             .shadow(radius: 10)
