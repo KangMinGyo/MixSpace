@@ -28,9 +28,7 @@ struct ProfileView: View {
                 
                 Spacer()
             }
-
         }
-        
         .ignoresSafeArea()
     }
 }

@@ -11,7 +11,7 @@ import Firebase
 struct MainView: View {
     
     @State var selection = 0
-    let title = ["Home", "Space", "Heart","My"]
+    let title = ["Home", "Heart", "Chat", "My"]
     
     var body: some View {
         NavigationView {
@@ -24,25 +24,27 @@ struct MainView: View {
                                 Text("Space")
                             }
                             .tag(0)
-                        Text("MySpace")
-                            .tabItem {
-                                Image(systemName: "moonphase.full.moon")
-                                Text("MySpace")
-                            }
-                            .tag(1)
+                        
                         SearchView()
                             .tabItem {
                                 Image(systemName: "magnifyingglass")
                                 Text("Search")
                             }
+                            .tag(1)
+                        
+                        ChatView()
+                            .tabItem {
+                                Image(systemName: "message")
+                                Text("Chat")
+                            }
                             .tag(2)
+                        
                         ProfileView()
                             .tabItem {
                                 Image(systemName: "person.circle.fill")
                                 Text("My")
                             }
                             .tag(3)
-                        
                     }
                 }
             }
