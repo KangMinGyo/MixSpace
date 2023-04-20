@@ -9,9 +9,8 @@ import Foundation
 
 class NewMessageViewModel: ObservableObject {
     let service = ProfileService()
-    
     @Published var users = [User]()
-    
+
     init() {
         fetchFollwingUsers()
     }

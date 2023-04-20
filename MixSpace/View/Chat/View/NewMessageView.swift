@@ -11,6 +11,7 @@ import SDWebImageSwiftUI
 struct NewMessageView: View {
     @ObservedObject var vm = NewMessageViewModel()
     @Environment(\.dismiss) private var dismiss
+    @State var showChat = false
     
     var body: some View {
         NavigationView {
@@ -43,7 +44,7 @@ extension NewMessageView {
         ForEach(vm.users) { user in
             Button {
                 dismiss()
-//                viewModel.didSelectNewUser(user)
+                showChat.toggle()
             } label: {
                 HStack(spacing: 16){
                     WebImage(url: URL(string: user.profileImageURL))
@@ -59,6 +60,9 @@ extension NewMessageView {
                     Spacer()
                 }.padding(.horizontal)
                 Divider()
+            }
+            .fullScreenCover(isPresented: $showChat) {
+                ChatLogView(viewModel: ChatLogViewModel(chatUser: user), chatUser: user)
             }
         }
     }
