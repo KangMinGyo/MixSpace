@@ -30,12 +30,6 @@ struct ChatLogView: View {
     }
 }
 
-//struct ChatLogView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ChatLogView()
-//    }
-//}
-
 extension ChatLogView {
     private var chatBottomBar: some View {
         HStack(spacing: 16) {

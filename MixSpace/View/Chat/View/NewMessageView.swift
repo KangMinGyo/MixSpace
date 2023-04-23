@@ -43,7 +43,7 @@ extension NewMessageView {
     private var userProfiles: some View {
         ForEach(vm.users) { user in
             Button {
-                dismiss()
+//                dismiss()
                 showChat.toggle()
             } label: {
                 HStack(spacing: 16){

@@ -116,7 +116,7 @@ class ChatLogViewModel: ObservableObject {
                     "fromID": uid,
                     "toID": toID,
                     "profileImageURL": chatUser.profileImageURL,
-                    "email": chatUser.email] as [String : Any]
+                    "nickName": chatUser.nickName] as [String : Any]
         
         
         

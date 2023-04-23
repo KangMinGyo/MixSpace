@@ -19,7 +19,7 @@ struct ChatView: View {
                 messageView
                 
                 NavigationLink("", isActive: $vm.shouldNavigateToChatLogView) {
-//                    ChatLogView(chatUser: self.chatUser)
+//                    ChatLogView(viewModel: ChatLogViewModel, chatUser: self.chatUser)
                 }
             }
             .overlay(
@@ -86,7 +86,7 @@ extension ChatView {
                                 .overlay(RoundedRectangle(cornerRadius: 25)
                                     .stroke(Color.gray, lineWidth: 1))
                             VStack(alignment: .leading, spacing: 8) {
-                                Text(recentMessage.userName)
+                                Text("@\(recentMessage.nickName)")
                                     .font(.system(size: 16, weight: .bold))
                                     .foregroundColor(.black)
                                     .multilineTextAlignment(.leading)
