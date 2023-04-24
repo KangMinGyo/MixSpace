@@ -10,6 +10,7 @@ import SDWebImageSwiftUI
 
 struct ChatView: View {
     @ObservedObject var vm = ChatViewModel()
+    @State var user: User?
     
     var body: some View {
         NavigationView {
@@ -19,7 +20,7 @@ struct ChatView: View {
                 messageView
                 
                 NavigationLink("", isActive: $vm.shouldNavigateToChatLogView) {
-//                    ChatLogView(viewModel: ChatLogViewModel, chatUser: self.chatUser)
+                    ChatLogView(viewModel: ChatLogViewModel(chatUser: user), chatUser: self.user)
                 }
             }
             .overlay(
@@ -124,7 +125,7 @@ extension ChatView {
             .padding()
             .background(Color("SpaceYellow"))
             .cornerRadius(32)
-            .padding(.horizontal)
+            .padding()
             .shadow(radius: 10)
         }
         .fullScreenCover(isPresented: $vm.shouldShowNewMessageScreen) {

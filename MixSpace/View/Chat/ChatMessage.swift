@@ -11,13 +11,18 @@ import FirebaseFirestoreSwift
 
 struct ChatMessage: Identifiable {
     
-    @DocumentID var id: String?
+    var id: String { documentID }
     let documentID: String
     let fromID: String
     let toID: String
     let text: String
     let email: String
-    let timestamp: Timestamp
+    let timestamp: Date
     let profileImageURL: String
-
+    
+    var time: String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .abbreviated
+        return formatter.localizedString(for: timestamp, relativeTo: Date())
+    }
 }
