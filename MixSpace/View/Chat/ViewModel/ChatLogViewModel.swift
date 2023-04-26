@@ -21,40 +21,41 @@ class ChatLogViewModel: ObservableObject {
     init(chatUser: User?) {
         self.chatUser = chatUser
         
-//        fetchMessages()
+        fetchMessages()
     }
     
     var firestoreListener: ListenerRegistration?
     
-//    func fetchMessages() {
-//        guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else { return }
-//        guard let toID = chatUser?.uid else { return }
-//
-//        firestoreListener = FirebaseManager.shared.fireStore
-//            .collection("messages")
-//            .document(fromID)
-//            .collection(toID)
-//            .order(by: "timeStamp")
-//            .addSnapshotListener { querySnapshot, err in
-//                if let err = err {
-//                    self.errorMessage = "Failed to listen for messages: \(err)"
-//                    print(err)
-//                    return
-//                }
-//
-//                querySnapshot?.documentChanges.forEach({ change in
-//                    if change.type == .added {
-//                        let data = change.document.data()
-//                        self.chatMessage.append(documentID: change.document.documentID, data: data)
-//                        print("Appending chatMessage in ChatLogView: \(Date())")
-//                    }
-//                })
-//
-//                DispatchQueue.main.async {
-//                    self.count += 1
-//                }
-//            }
-//    }
+    func fetchMessages() {
+        print("toID: \(chatUser?.uid)")
+        guard let fromID = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let toID = chatUser?.uid else { return }
+
+        FirebaseManager.shared.fireStore
+            .collection("messages")
+            .document(fromID)
+            .collection(toID)
+            .order(by: "timeStamp")
+            .addSnapshotListener { querySnapshot, err in
+                if let err = err {
+                    self.errorMessage = "Failed to listen for messages: \(err)"
+                    print(err)
+                    return
+                }
+
+                querySnapshot?.documentChanges.forEach({ change in
+                    if change.type == .added {
+                        let data = change.document.data()
+//                        self.chatMessage.append()
+                        print("Appending chatMessage in ChatLogView: \(Date())")
+                    }
+                })
+
+                DispatchQueue.main.async {
+                    self.count += 1
+                }
+            }
+    }
     
     func handleSend() {
         print(chatText)
