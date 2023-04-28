@@ -32,7 +32,7 @@ struct MainView: View {
                             }
                             .tag(1)
                         
-                        ChatView()
+                        MainMessageView()
                             .tabItem {
                                 Image(systemName: "message")
                                 Text("Chat")
