@@ -16,21 +16,24 @@ struct NewMessageView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                Text("TEST")
                 ForEach(vm.users) { user in
-                    HStack(spacing: 16) {
-                        WebImage(url: URL(string: user.profileImageURL))
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 50, height: 50)
-                            .clipShape(Circle())
-                            .overlay(RoundedRectangle(cornerRadius: 44)
-                                .stroke(Color.gray, lineWidth: 0.5))
-                        Text(user.name)
-                        Spacer()
-                    }.padding(.horizontal)
-                    Divider()
-                        .padding(.vertical, 8)
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack(spacing: 16) {
+                            WebImage(url: URL(string: user.profileImageURL))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .clipShape(Circle())
+                                .overlay(RoundedRectangle(cornerRadius: 44)
+                                    .stroke(Color.gray, lineWidth: 0.5))
+                            Text(user.name)
+                                .foregroundColor(Color.primary)
+                            Spacer()
+                        }.padding(.horizontal)
+                        Divider()
+                    }
                 }
             }.navigationTitle("새로운 메시지")
                 .toolbar {
