@@ -65,6 +65,7 @@
 		8C886FD029DD5966008117AC /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FCF29DD5966008117AC /* SearchViewModel.swift */; };
 		8C886FD229DD5CA7008117AC /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FD129DD5CA7008117AC /* UserProfileView.swift */; };
 		8CA9C9B629FA952A0072A531 /* MainMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C9B529FA952A0072A531 /* MainMessageView.swift */; };
+		8CA9C9B829FD626C0072A531 /* MainMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C9B729FD626C0072A531 /* MainMessageViewModel.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -128,6 +129,7 @@
 		8C886FCF29DD5966008117AC /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		8C886FD129DD5CA7008117AC /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		8CA9C9B529FA952A0072A531 /* MainMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageView.swift; sourceTree = "<group>"; };
+		8CA9C9B729FD626C0072A531 /* MainMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMessageViewModel.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				8CA9C9B529FA952A0072A531 /* MainMessageView.swift */,
+				8CA9C9B729FD626C0072A531 /* MainMessageViewModel.swift */,
 			);
 			path = Chat;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				8C10593729E9302400BED63F /* UserProfileViewModel.swift in Sources */,
 				8C886FAE29D56132008117AC /* PostService.swift in Sources */,
 				8C024DDF29D1CC2E005788BF /* ProfileEditViewModel.swift in Sources */,
+				8CA9C9B829FD626C0072A531 /* MainMessageViewModel.swift in Sources */,
 				8C024DDD29D1C665005788BF /* Post.swift in Sources */,
 				8C024D9C29C429AC005788BF /* UserRowProfile.swift in Sources */,
 				8C886FBC29D71B6C008117AC /* SignUpViewModel.swift in Sources */,

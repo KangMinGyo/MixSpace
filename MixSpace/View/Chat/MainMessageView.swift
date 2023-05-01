@@ -6,11 +6,19 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
+
+struct ChatUser {
+    let uid, name, profileImageURL: String
+}
 
 struct MainMessageView: View {
+    @ObservedObject private var vm = MainMessageViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
+                Text("CURRENT USER ID: \(vm.chatUser?.uid ?? "")")
                 customNavigationBar
             
                 messageView
@@ -30,16 +38,19 @@ struct MainMessageView_Previews: PreviewProvider {
 
 extension MainMessageView {
     private var customNavigationBar: some View {
-        //Custom Navigation Bar
         HStack(spacing: 16) {
-            Image(systemName: "person.fill")
-                .font(.system(size: 34, weight: .heavy))
-                .padding(8)
+            
+            WebImage(url: URL(string: vm.chatUser?.profileImageURL ?? ""))
+//            Image(systemName: "person.fill")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 44, height: 44)
+                .clipShape(Circle())
                 .overlay(RoundedRectangle(cornerRadius: 44)
-                    .stroke(Color.gray, lineWidth: 1))
+                    .stroke(Color.gray, lineWidth: 0.5))
             
             VStack(alignment: .leading, spacing: 4) {
-                Text("User Name")
+                Text("\(vm.chatUser?.name ?? "")")
                     .font(.system(size: 24, weight: .bold))
                 HStack(spacing:4) {
                     Circle()
@@ -64,7 +75,7 @@ extension MainMessageView {
                             .font(.system(size: 32))
                             .padding(8)
                             .overlay(RoundedRectangle(cornerRadius: 44)
-                                .stroke(Color.gray, lineWidth: 1))
+                                .stroke(Color.gray, lineWidth: 0.5))
                         
                         VStack(alignment: .leading) {
                             Text("UserName")
