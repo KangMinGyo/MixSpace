@@ -12,6 +12,8 @@ class MainMessageViewModel: ObservableObject {
     @Published var errorMessage = ""
     @Published var chatUser: ChatUser?
     
+    @Published var shouldShowNewMessageScreen = false
+    
     let service = UserService()
     
     init() {

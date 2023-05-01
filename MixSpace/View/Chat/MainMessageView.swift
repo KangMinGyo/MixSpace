@@ -8,7 +8,8 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct ChatUser {
+struct ChatUser: Identifiable {
+    var id: String { uid } 
     let uid, name, profileImageURL: String
 }
 
@@ -18,7 +19,6 @@ struct MainMessageView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("CURRENT USER ID: \(vm.chatUser?.uid ?? "")")
                 customNavigationBar
             
                 messageView
@@ -98,7 +98,7 @@ extension MainMessageView {
     
     private var newMessageButton: some View {
         Button {
-            
+            vm.shouldShowNewMessageScreen.toggle()
         } label: {
             HStack {
                 Spacer()
@@ -112,6 +112,9 @@ extension MainMessageView {
             .cornerRadius(32)
             .padding()
             .shadow(radius: 10)
+        }
+        .fullScreenCover(isPresented: $vm.shouldShowNewMessageScreen) {
+            NewMessageView()
         }
     }
 }

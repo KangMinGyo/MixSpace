@@ -31,10 +31,22 @@ class SearchViewModel: ObservableObject {
     }
     
     func fetchUsers() {
-        service.fetchUsers { users in
-            self.users = users
-            
-            print("DEBUG: Users \(users)")
-        }
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        
+        FirebaseManager.shared.fireStore.collection("users")
+            .getDocuments { snapshot, err in
+                if let err = err {
+                    print("친구 불러오는거 실패했어잉,,\(err)")
+                    return
+                }
+                
+                snapshot?.documents.forEach({ snapshot in
+                    let data = snapshot.data()
+                    let user = User(data: data)
+                    if user.uid != uid {
+                        self.users.append(.init(data: data))
+                    }
+                })
+            }
     }
 }

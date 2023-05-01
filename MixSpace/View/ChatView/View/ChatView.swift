@@ -129,7 +129,7 @@ extension ChatView {
             .shadow(radius: 10)
         }
         .fullScreenCover(isPresented: $vm.shouldShowNewMessageScreen) {
-            NewMessageView()
+//            MessageView()
         }
     }
 }

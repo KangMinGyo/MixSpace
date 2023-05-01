@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NewMessageViewModel: ObservableObject {
+class MessageViewModel: ObservableObject {
     let service = ProfileService()
     @Published var users = [User]()
 
