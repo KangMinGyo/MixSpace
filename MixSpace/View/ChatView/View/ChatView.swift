@@ -20,7 +20,7 @@ struct ChatView: View {
                 messageView
                 
                 NavigationLink("", isActive: $vm.shouldNavigateToChatLogView) {
-                    ChatLogView(viewModel: ChatLogViewModel(chatUser: user), chatUser: self.user)
+//                    ChatLogView(viewModel: ChatLogViewModel(chatUser: user), chatUser: self.user)
                 }
             }
             .overlay(

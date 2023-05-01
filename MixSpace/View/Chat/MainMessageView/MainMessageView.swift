@@ -8,20 +8,20 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
-struct ChatUser: Identifiable {
-    var id: String { uid } 
-    let uid, name, profileImageURL: String
-}
-
 struct MainMessageView: View {
     @ObservedObject private var vm = MainMessageViewModel()
+    @State var chatUser: ChatUser?
+    @State var shouldNavigateToChatLogView = false
     
     var body: some View {
         NavigationView {
             VStack {
                 customNavigationBar
-            
                 messageView
+                
+                NavigationLink("", isActive: $shouldNavigateToChatLogView) {
+                    ChatLogView(chatUser: self.chatUser)
+                }
                 
             }.overlay(
                 newMessageButton, alignment: .bottom)
@@ -70,24 +70,28 @@ extension MainMessageView {
         ScrollView {
             ForEach(0..<10, id: \.self) { num in
                 VStack {
-                    HStack(spacing: 16) {
-                        Image(systemName: "person.fill")
-                            .font(.system(size: 32))
-                            .padding(8)
-                            .overlay(RoundedRectangle(cornerRadius: 44)
-                                .stroke(Color.gray, lineWidth: 0.5))
-                        
-                        VStack(alignment: .leading) {
-                            Text("UserName")
-                                .font(.system(size: 16, weight: .bold))
-                            Text("Message sent to user")
-                                .font(.system(size: 14))
-                                .foregroundColor(Color(.lightGray))
+                    NavigationLink {
+                        Text("Destination")
+                    } label: {
+                        HStack(spacing: 16) {
+                            Image(systemName: "person.fill")
+                                .font(.system(size: 32))
+                                .padding(8)
+                                .overlay(RoundedRectangle(cornerRadius: 44)
+                                    .stroke(Color.gray, lineWidth: 0.5))
+                            
+                            VStack(alignment: .leading) {
+                                Text("UserName")
+                                    .font(.system(size: 16, weight: .bold))
+                                Text("Message sent to user")
+                                    .font(.system(size: 14))
+                                    .foregroundColor(Color(.lightGray))
+                            }
+                            Spacer()
+                            
+                            Text("22d")
+                                .font(.system(size: 14, weight: .semibold))
                         }
-                        Spacer()
-                        
-                        Text("22d")
-                            .font(.system(size: 14, weight: .semibold))
                     }
                 }
                 Divider()
@@ -114,7 +118,11 @@ extension MainMessageView {
             .shadow(radius: 10)
         }
         .fullScreenCover(isPresented: $vm.shouldShowNewMessageScreen) {
-            NewMessageView()
+            NewMessageView(didSelectNewUser: { user in
+                print(user.name)
+                self.shouldNavigateToChatLogView.toggle()
+                self.chatUser = user
+            })
         }
     }
 }
