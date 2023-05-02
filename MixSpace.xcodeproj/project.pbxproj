@@ -51,7 +51,7 @@
 		8C10595929EFCC7100BED63F /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10595829EFCC7100BED63F /* MessageView.swift */; };
 		8C10595B29EFCE7E00BED63F /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10595A29EFCE7E00BED63F /* MessageViewModel.swift */; };
 		8C10595D29EFFFBA00BED63F /* FChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10595C29EFFFBA00BED63F /* FChatLogView.swift */; };
-		8C10595F29F0005300BED63F /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10595E29F0005300BED63F /* ChatLogViewModel.swift */; };
+		8C10595F29F0005300BED63F /* FChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10595E29F0005300BED63F /* FChatLogViewModel.swift */; };
 		8C10596129F0049B00BED63F /* ChatMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C10596029F0049B00BED63F /* ChatMessage.swift */; };
 		8C7608F029D402C5004DD238 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7608EF29D402C5004DD238 /* WritingViewModel.swift */; };
 		8C886FAE29D56132008117AC /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C886FAD29D56132008117AC /* PostService.swift */; };
@@ -70,6 +70,7 @@
 		8CA9C9BD29FFAE8D0072A531 /* NewMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C9BC29FFAE8D0072A531 /* NewMessageViewModel.swift */; };
 		8CA9C9BF29FFE67F0072A531 /* ChatUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C9BE29FFE67F0072A531 /* ChatUser.swift */; };
 		8CA9C9C329FFEA4C0072A531 /* ChatLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA9C9C229FFEA4C0072A531 /* ChatLogView.swift */; };
+		8CAA03B42A00DB8400C5E5F6 /* ChatLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAA03B32A00DB8400C5E5F6 /* ChatLogViewModel.swift */; };
 		8CBB341729BEF93F00B98E4A /* MixSpaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */; };
 		8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBB341829BEF93F00B98E4A /* LoginView.swift */; };
 		8CBB341B29BEF94100B98E4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CBB341A29BEF94100B98E4A /* Assets.xcassets */; };
@@ -121,7 +122,7 @@
 		8C10595829EFCC7100BED63F /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		8C10595A29EFCE7E00BED63F /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		8C10595C29EFFFBA00BED63F /* FChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FChatLogView.swift; sourceTree = "<group>"; };
-		8C10595E29F0005300BED63F /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
+		8C10595E29F0005300BED63F /* FChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FChatLogViewModel.swift; sourceTree = "<group>"; };
 		8C10596029F0049B00BED63F /* ChatMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessage.swift; sourceTree = "<group>"; };
 		8C7608EF29D402C5004DD238 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		8C886FAD29D56132008117AC /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostService.swift; sourceTree = "<group>"; };
@@ -138,6 +139,7 @@
 		8CA9C9BC29FFAE8D0072A531 /* NewMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewModel.swift; sourceTree = "<group>"; };
 		8CA9C9BE29FFE67F0072A531 /* ChatUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUser.swift; sourceTree = "<group>"; };
 		8CA9C9C229FFEA4C0072A531 /* ChatLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogView.swift; sourceTree = "<group>"; };
+		8CAA03B32A00DB8400C5E5F6 /* ChatLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogViewModel.swift; sourceTree = "<group>"; };
 		8CBB341329BEF93F00B98E4A /* MixSpace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixSpace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBB341629BEF93F00B98E4A /* MixSpaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixSpaceApp.swift; sourceTree = "<group>"; };
 		8CBB341829BEF93F00B98E4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -417,7 +419,7 @@
 			children = (
 				8C10595229EFB71D00BED63F /* ChatViewModel.swift */,
 				8C10595A29EFCE7E00BED63F /* MessageViewModel.swift */,
-				8C10595E29F0005300BED63F /* ChatLogViewModel.swift */,
+				8C10595E29F0005300BED63F /* FChatLogViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				8CA9C9C229FFEA4C0072A531 /* ChatLogView.swift */,
+				8CAA03B32A00DB8400C5E5F6 /* ChatLogViewModel.swift */,
 			);
 			path = ChatLogView;
 			sourceTree = "<group>";
@@ -670,7 +673,7 @@
 				8C024DB729C6D9F2005788BF /* WritingView.swift in Sources */,
 				8C024D9029C2F1B7005788BF /* ProfileView.swift in Sources */,
 				8C10595B29EFCE7E00BED63F /* MessageViewModel.swift in Sources */,
-				8C10595F29F0005300BED63F /* ChatLogViewModel.swift in Sources */,
+				8C10595F29F0005300BED63F /* FChatLogViewModel.swift in Sources */,
 				8CBB341929BEF93F00B98E4A /* LoginView.swift in Sources */,
 				8C886FD029DD5966008117AC /* SearchViewModel.swift in Sources */,
 				8C024DB429C5F2BE005788BF /* SideMenuViewModel.swift in Sources */,
@@ -691,6 +694,7 @@
 				8C024DC829C97A68005788BF /* ProfileViewModel.swift in Sources */,
 				8C024D8129C09756005788BF /* ContentView.swift in Sources */,
 				8C10595529EFB9E600BED63F /* RecentMessage.swift in Sources */,
+				8CAA03B42A00DB8400C5E5F6 /* ChatLogViewModel.swift in Sources */,
 				8C10593529E6CBFB00BED63F /* SearchBar.swift in Sources */,
 				8C024DA629C43B7D005788BF /* SideMenuView.swift in Sources */,
 				8C10594E29EEBDFF00BED63F /* FollowerViewModel.swift in Sources */,

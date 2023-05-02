@@ -10,17 +10,16 @@ import SwiftUI
 struct ChatLogView: View {
     
     let chatUser: ChatUser?
-    @State var chatText = ""
+    
+    init(chatUser: ChatUser?) {
+        self.chatUser = chatUser
+        self.vm = .init(chatUser: chatUser)
+    }
+    
+    @ObservedObject var vm: ChatLogViewModel
     
     var body: some View {
         messageView
-//        ZStack {
-//            VStack {
-//                Spacer()
-//                chatButtonBar
-//                    .background(Color.white)
-//            }
-//        }
         .navigationTitle(chatUser?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -63,9 +62,9 @@ extension ChatLogView {
             Image(systemName: "message.fill")
                 .font(.system(size: 24))
                 .foregroundColor(Color("SpaceYellow"))
-            TextField("Description", text: $chatText)
+            TextField("Description", text: $vm.chatText)
             Button {
-                
+                vm.handleSend()
             } label: {
                 Text("보내기")
                     .foregroundColor(Color.white)
