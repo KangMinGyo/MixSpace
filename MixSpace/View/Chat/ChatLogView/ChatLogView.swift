@@ -34,16 +34,31 @@ struct ChatLogView_Previews: PreviewProvider {
 extension ChatLogView {
     private var messageView: some View {
         ScrollView {
-            ForEach(0..<20) { num in
-                HStack {
-                    Spacer()
-                    HStack {
-                        Text("Fack Message")
-                            .foregroundColor(.white)
+            ForEach(vm.chatMesssages) { message in
+                VStack {
+                    if message.fromID == FirebaseManager.shared.auth.currentUser?.uid {
+                        HStack {
+                            Spacer()
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(.white)
+                            }
+                            .padding()
+                            .background(Color("SpaceYellow"))
+                            .cornerRadius(8)
+                        }
+                    } else {
+                        HStack {
+                            HStack {
+                                Text(message.text)
+                                    .foregroundColor(Color.primary)
+                            }
+                            .padding()
+                            .background(.white)
+                            .cornerRadius(8)
+                            Spacer()
+                        }
                     }
-                    .padding()
-                    .background(Color("SpaceYellow"))
-                    .cornerRadius(8)
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
