@@ -22,6 +22,11 @@ struct ChatLogView: View {
         messageView
         .navigationTitle(chatUser?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
+//        .navigationBarItems(trailing: Button(action: {
+//            vm.count += 1
+//        }, label: {
+//            Text("Count : \(vm.count)")
+//        }))
     }
 }
 
@@ -31,39 +36,61 @@ struct ChatLogView_Previews: PreviewProvider {
     }
 }
 
+struct MessageView: View {
+    
+    let message: ChatMessage
+    
+    var body: some View {
+        VStack {
+            if message.fromID == FirebaseManager.shared.auth.currentUser?.uid {
+                HStack {
+                    Spacer()
+                    HStack {
+                        Text(message.text)
+                            .foregroundColor(.white)
+                    }
+                    .padding()
+                    .background(Color("SpaceYellow"))
+                    .cornerRadius(8)
+                }
+            } else {
+                HStack {
+                    HStack {
+                        Text(message.text)
+                            .foregroundColor(Color.primary)
+                    }
+                    .padding()
+                    .background(.white)
+                    .cornerRadius(8)
+                    Spacer()
+                }
+            }
+        }
+        .padding(.horizontal)
+        .padding(.top, 8)
+    }
+}
+
 extension ChatLogView {
+    
+    static let emptyScrollToString = "Empty"
+    
     private var messageView: some View {
         ScrollView {
-            ForEach(vm.chatMesssages) { message in
+            ScrollViewReader { scrollViewProxy in
                 VStack {
-                    if message.fromID == FirebaseManager.shared.auth.currentUser?.uid {
-                        HStack {
-                            Spacer()
-                            HStack {
-                                Text(message.text)
-                                    .foregroundColor(.white)
-                            }
-                            .padding()
-                            .background(Color("SpaceYellow"))
-                            .cornerRadius(8)
-                        }
-                    } else {
-                        HStack {
-                            HStack {
-                                Text(message.text)
-                                    .foregroundColor(Color.primary)
-                            }
-                            .padding()
-                            .background(.white)
-                            .cornerRadius(8)
-                            Spacer()
-                        }
+                    ForEach(vm.chatMesssages) { message in
+                        MessageView(message: message)
+                    }
+                    HStack{ Spacer() }
+                        .id(ChatLogView.emptyScrollToString)
+                }
+                .onReceive(vm.$count) { _ in
+                    withAnimation(.easeOut(duration: 0.5)) {
+                        scrollViewProxy.scrollTo(ChatLogView.emptyScrollToString, anchor: .bottom)
                     }
                 }
-                .padding(.horizontal)
-                .padding(.top, 8)
             }
-            HStack{ Spacer() }
         }
         .background(Color("SpaceWhite"))
         .safeAreaInset(edge: .bottom) {

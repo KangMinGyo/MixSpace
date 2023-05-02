@@ -58,7 +58,11 @@ class ChatLogViewModel: ObservableObject {
                     }
                 })
                 
-                //이렇게 하면 메시지 보내면 전 메시지와 함께 중복으로 fetch됨
+                DispatchQueue.main.async {
+                    self.count += 1
+                }
+//
+//                이렇게 하면 메시지 보내면 전 메시지와 함께 중복으로 fetch됨
 //                querySnapshot?.documents.forEach({ queryDocumentSnapshot in
 //                    let data = queryDocumentSnapshot.data()
 //                    let docId = queryDocumentSnapshot.documentID
@@ -88,6 +92,7 @@ class ChatLogViewModel: ObservableObject {
             }
             print("메시지 보내기 성공")
             self.chatText = ""
+            self.count += 1
         }
         let recipientMessageDocument = FirebaseManager.shared.fireStore.collection("messages")
             .document(toID)
@@ -102,4 +107,6 @@ class ChatLogViewModel: ObservableObject {
             print("메시지 받기 성공")
         }
     }
+    // 자동 스크롤
+    @Published var count = 0
 }
