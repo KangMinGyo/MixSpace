@@ -13,15 +13,14 @@ struct ChatLogView: View {
     @State var chatText = ""
     
     var body: some View {
-        ZStack {
-            messageView
-            
-            VStack {
-                Spacer()
-                chatButtonBar
-                    .background(Color.white)
-            }
-        }
+        messageView
+//        ZStack {
+//            VStack {
+//                Spacer()
+//                chatButtonBar
+//                    .background(Color.white)
+//            }
+//        }
         .navigationTitle(chatUser?.name ?? "")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -53,7 +52,10 @@ extension ChatLogView {
             HStack{ Spacer() }
         }
         .background(Color("SpaceWhite"))
-        .padding(.bottom, 65)
+        .safeAreaInset(edge: .bottom) {
+            chatButtonBar
+                .background(Color(.systemBackground).ignoresSafeArea())
+        }
     }
     
     private var chatButtonBar: some View {
