@@ -91,6 +91,9 @@ class ChatLogViewModel: ObservableObject {
                 return
             }
             print("메시지 보내기 성공")
+            
+            self.persistRecentMessage()
+            
             self.chatText = ""
             self.count += 1
         }
@@ -107,6 +110,34 @@ class ChatLogViewModel: ObservableObject {
             print("메시지 받기 성공")
         }
     }
+    
+    private func persistRecentMessage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return }
+        guard let toID = self.chatUser?.uid else { return }
+        
+        let document = FirebaseManager.shared.fireStore
+            .collection("recent_messages")
+            .document(uid)
+            .collection("messages")
+            .document(toID)
+        
+        let data = ["timestamp": Timestamp(),
+                    "text": self.chatText,
+                    "fromID": uid,
+                    "toID": toID,
+                    "profileImageURL": chatUser?.profileImageURL ?? "",
+                    "name": chatUser?.name ?? ""] as [String : Any]
+        
+        
+        
+        document.setData(data) { err in
+            if let err = err {
+                print("Failed to save recent message: \(err)")
+                return
+            }
+        }
+    }
+    
     // 자동 스크롤
     @Published var count = 0
 }

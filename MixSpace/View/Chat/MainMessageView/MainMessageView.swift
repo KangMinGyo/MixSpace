@@ -68,29 +68,36 @@ extension MainMessageView {
     
     private var messageView: some View {
         ScrollView {
-            ForEach(0..<10, id: \.self) { num in
+            ForEach(vm.recentMessages) { recentMessage in
                 VStack {
-                    NavigationLink {
-                        Text("Destination")
+                    Button {
+                        let uid = FirebaseManager.shared.auth.currentUser?.uid == recentMessage.fromID ? recentMessage.toID : recentMessage.fromID
+                        self.chatUser = .init(uid: uid, name: recentMessage.name, profileImageURL: recentMessage.profileImageURL)
+                        self.shouldNavigateToChatLogView.toggle()
                     } label: {
                         HStack(spacing: 16) {
-                            Image(systemName: "person.fill")
-                                .font(.system(size: 32))
-                                .padding(8)
+                            WebImage(url: URL(string: recentMessage.profileImageURL))
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 64, height: 64)
+                                .clipShape(Circle())
                                 .overlay(RoundedRectangle(cornerRadius: 44)
                                     .stroke(Color.gray, lineWidth: 0.5))
                             
-                            VStack(alignment: .leading) {
-                                Text("UserName")
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(recentMessage.name)
                                     .font(.system(size: 16, weight: .bold))
-                                Text("Message sent to user")
+                                    .foregroundColor(Color.primary)
+                                Text(recentMessage.text)
                                     .font(.system(size: 14))
                                     .foregroundColor(Color(.lightGray))
+                                    .multilineTextAlignment(.leading)
                             }
                             Spacer()
                             
-                            Text("22d")
+                            Text(recentMessage.time)
                                 .font(.system(size: 14, weight: .semibold))
+                                .foregroundColor(Color(.lightGray))
                         }
                     }
                 }
