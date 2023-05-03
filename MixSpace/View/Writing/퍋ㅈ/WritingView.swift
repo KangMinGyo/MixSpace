@@ -48,28 +48,6 @@ struct WritingView: View {
                         }
                 }
                 .padding()
-                
-                Toggle(isOn: $privatePost) {
-                    HStack {
-                        Image(systemName: "lock")
-                            .font(.title3)
-                        
-                        Text("나만보기")
-                            .font(.callout)
-                    }
-                }
-                .padding()
-                
-                Toggle(isOn: $privateComment) {
-                    HStack {
-                        Image(systemName: "bubble.left")
-                            .font(.system(size: 16))
-                        
-                        Text("댓글허용")
-                            .font(.callout)
-                    }
-                }
-                .padding(.horizontal)
             }
             .padding(.bottom)
             .navigationTitle("글 쓰기")
@@ -100,38 +78,3 @@ struct WritingView_Previews: PreviewProvider {
         WritingView()
     }
 }
-
-extension WritingView {
-    
-//    func loadImage() {
-//        guard let selectedImage = vm.croppedImage else { return }
-//        vm.profileImage = Image(uiImage: selectedImage)
-//    }
-    
-    
-//    func loadImage() {
-//        guard let selectedImage = vm.selectedImage else { return }
-//        profileImage = Image(uiImage: selectedImage)
-//    }
-}
-
-
-//    .sheet(isPresented: $imagePickerPresented,
-//           onDismiss: loadImage,
-//           content: { ImagePicker(image: $vm.selectedImage)
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    Button {
-//                        cropperShown.toggle()
-//                    } label: {
-//                        Text("추가")
-//                            .foregroundColor(.primary)
-//                    }
-//                    .sheet(isPresented: $cropperShown){
-//                        ImageCroppingView(shown: $cropperShown,
-//                                          image: vm.selectedImage!,
-//                                          croppedImage: $vm.croppedImage)
-//                    }
-//                }
-//            }
-//    })
