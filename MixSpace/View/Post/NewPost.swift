@@ -104,12 +104,6 @@ struct NewPost: View {
         }
     }
 }
-//
-//struct NewPost_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NewPost()
-//    }
-//}
 
 extension Image {
     func data(url: URL) -> Image {

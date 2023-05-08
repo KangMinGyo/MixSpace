@@ -62,7 +62,6 @@ extension MainMessageView {
                 }
             }
             Spacer()
-            Image(systemName: "gear")
         }.padding()
     }
     
